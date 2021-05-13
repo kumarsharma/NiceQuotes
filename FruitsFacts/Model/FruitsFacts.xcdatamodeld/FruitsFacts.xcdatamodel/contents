@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Fact" representedClassName="Fact" syncable="YES">
+        <attribute name="factFor" optional="YES" attributeType="String"/>
+        <attribute name="factId" optional="YES" attributeType="String"/>
+        <attribute name="factText" optional="YES" attributeType="String"/>
+        <attribute name="isFavourite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isLiked" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isUnliked" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="reference" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Fact" positionX="-63" positionY="-18" width="128" height="134"/>
+    </elements>
+</model>

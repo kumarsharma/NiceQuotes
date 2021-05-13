@@ -16,6 +16,13 @@
 		CE76FD39264BE01C0092709A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE76FD37264BE01C0092709A /* LaunchScreen.storyboard */; };
 		CE76FD44264BE01C0092709A /* FruitsFactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD43264BE01C0092709A /* FruitsFactsTests.swift */; };
 		CE76FD4F264BE01C0092709A /* FruitsFactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD4E264BE01C0092709A /* FruitsFactsUITests.swift */; };
+		CE76FD62264BE8FF0092709A /* Fact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD60264BE8FF0092709A /* Fact+CoreDataClass.swift */; };
+		CE76FD63264BE8FF0092709A /* Fact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD61264BE8FF0092709A /* Fact+CoreDataProperties.swift */; };
+		CE76FD72264BF1AD0092709A /* FactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD71264BF1AD0092709A /* FactViewController.swift */; };
+		CE76FD77264C04700092709A /* FactPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD76264C04700092709A /* FactPresenter.swift */; };
+		CE76FD7E264C04D00092709A /* ViewUpdateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD7C264C04D00092709A /* ViewUpdateProtocol.swift */; };
+		CE76FD7F264C04D00092709A /* MVPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD7D264C04D00092709A /* MVPresenter.swift */; };
+		CEB343AB264C0FF500EABE73 /* KDCoreDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB343AA264C0FF500EABE73 /* KDCoreDataCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,13 @@
 		CE76FD4A264BE01C0092709A /* FruitsFactsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FruitsFactsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE76FD4E264BE01C0092709A /* FruitsFactsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsFactsUITests.swift; sourceTree = "<group>"; };
 		CE76FD50264BE01C0092709A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE76FD60264BE8FF0092709A /* Fact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fact+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE76FD61264BE8FF0092709A /* Fact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fact+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE76FD71264BF1AD0092709A /* FactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactViewController.swift; sourceTree = "<group>"; };
+		CE76FD76264C04700092709A /* FactPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactPresenter.swift; sourceTree = "<group>"; };
+		CE76FD7C264C04D00092709A /* ViewUpdateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUpdateProtocol.swift; sourceTree = "<group>"; };
+		CE76FD7D264C04D00092709A /* MVPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVPresenter.swift; sourceTree = "<group>"; };
+		CEB343AA264C0FF500EABE73 /* KDCoreDataCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCoreDataCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +115,9 @@
 		CE76FD28264BE0190092709A /* FruitsFacts */ = {
 			isa = PBXGroup;
 			children = (
+				CE76FD7B264C04B80092709A /* Protocols */,
+				CE76FD70264BEE7D0092709A /* MainView */,
+				CE76FD5F264BE8D90092709A /* Model */,
 				CE76FD29264BE0190092709A /* AppDelegate.swift */,
 				CE76FD2B264BE0190092709A /* SceneDelegate.swift */,
 				CE76FD2D264BE0190092709A /* ViewController.swift */,
@@ -108,7 +125,6 @@
 				CE76FD35264BE01C0092709A /* Assets.xcassets */,
 				CE76FD37264BE01C0092709A /* LaunchScreen.storyboard */,
 				CE76FD3A264BE01C0092709A /* Info.plist */,
-				CE76FD32264BE0190092709A /* FruitsFacts.xcdatamodeld */,
 			);
 			path = FruitsFacts;
 			sourceTree = "<group>";
@@ -129,6 +145,35 @@
 				CE76FD50264BE01C0092709A /* Info.plist */,
 			);
 			path = FruitsFactsUITests;
+			sourceTree = "<group>";
+		};
+		CE76FD5F264BE8D90092709A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEB343AA264C0FF500EABE73 /* KDCoreDataCoordinator.swift */,
+				CE76FD60264BE8FF0092709A /* Fact+CoreDataClass.swift */,
+				CE76FD61264BE8FF0092709A /* Fact+CoreDataProperties.swift */,
+				CE76FD32264BE0190092709A /* FruitsFacts.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE76FD70264BEE7D0092709A /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				CE76FD71264BF1AD0092709A /* FactViewController.swift */,
+				CE76FD76264C04700092709A /* FactPresenter.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		CE76FD7B264C04B80092709A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CE76FD7D264C04D00092709A /* MVPresenter.swift */,
+				CE76FD7C264C04D00092709A /* ViewUpdateProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +306,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE76FD7E264C04D00092709A /* ViewUpdateProtocol.swift in Sources */,
+				CE76FD62264BE8FF0092709A /* Fact+CoreDataClass.swift in Sources */,
 				CE76FD2E264BE0190092709A /* ViewController.swift in Sources */,
+				CEB343AB264C0FF500EABE73 /* KDCoreDataCoordinator.swift in Sources */,
 				CE76FD2A264BE0190092709A /* AppDelegate.swift in Sources */,
+				CE76FD63264BE8FF0092709A /* Fact+CoreDataProperties.swift in Sources */,
+				CE76FD7F264C04D00092709A /* MVPresenter.swift in Sources */,
+				CE76FD77264C04700092709A /* FactPresenter.swift in Sources */,
 				CE76FD34264BE0190092709A /* FruitsFacts.xcdatamodeld in Sources */,
 				CE76FD2C264BE0190092709A /* SceneDelegate.swift in Sources */,
+				CE76FD72264BF1AD0092709A /* FactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
