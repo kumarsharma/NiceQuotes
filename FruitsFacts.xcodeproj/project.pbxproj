@@ -115,15 +115,13 @@
 		CE76FD28264BE0190092709A /* FruitsFacts */ = {
 			isa = PBXGroup;
 			children = (
+				CE797F6E264D43DF0037088E /* Storyboards */,
+				CE797F6D264D43B20037088E /* AppDelegate */,
 				CE76FD7B264C04B80092709A /* Protocols */,
 				CE76FD70264BEE7D0092709A /* MainView */,
 				CE76FD5F264BE8D90092709A /* Model */,
-				CE76FD29264BE0190092709A /* AppDelegate.swift */,
-				CE76FD2B264BE0190092709A /* SceneDelegate.swift */,
 				CE76FD2D264BE0190092709A /* ViewController.swift */,
-				CE76FD2F264BE0190092709A /* Main.storyboard */,
 				CE76FD35264BE01C0092709A /* Assets.xcassets */,
-				CE76FD37264BE01C0092709A /* LaunchScreen.storyboard */,
 				CE76FD3A264BE01C0092709A /* Info.plist */,
 			);
 			path = FruitsFacts;
@@ -174,6 +172,24 @@
 				CE76FD7C264C04D00092709A /* ViewUpdateProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CE797F6D264D43B20037088E /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				CE76FD29264BE0190092709A /* AppDelegate.swift */,
+				CE76FD2B264BE0190092709A /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		CE797F6E264D43DF0037088E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CE76FD2F264BE0190092709A /* Main.storyboard */,
+				CE76FD37264BE01C0092709A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
