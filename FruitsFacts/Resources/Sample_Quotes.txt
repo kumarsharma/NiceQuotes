@@ -1,0 +1,204 @@
+﻿{
+    "Quotes": [
+        {
+            "Quote": "The Best Way To Get Started Is To Quit Talking And Begin Doing.",
+            "By": "Walt Disney"
+        },
+        {
+            "Quote": "The Pessimist Sees Difficulty In Every Opportunity. The Optimist Sees Opportunity In Every Difficulty.",
+            "By": "Winston Churchill"
+        },
+        {
+            "Quote": "Don’t Let Yesterday Take Up Too Much Of Today.",
+            "By": "Will Rogers"
+        },
+        {
+            "Quote": "You Learn More From Failure Than From Success. Don’t Let It Stop You. Failure Builds Character.",
+            "By": "Unknown"
+        },
+        {
+            "Quote": "It’s Not Whether You Get Knocked Down, It’s Whether You Get Up.",
+            "By": "Vince Lombardi"
+        },
+        {
+            "Quote": "If You Are Working On Something That You Really Care About, You Don’t Have To Be Pushed. The Vision Pulls You.",
+            "By": "Steve Jobs"
+        },
+        {
+            "Quote": "People Who Are Crazy Enough To Think They Can Change The World, Are The Ones Who Do.",
+            "By": "Rob Siltanen"
+        },
+        {
+            "Quote": "Failure Will Never Overtake Me If My Determination To Succeed Is Strong Enough.",
+            "By": "Og Mandino"
+        },
+        {
+            "Quote": "Entrepreneurs Are Great At Dealing With Uncertainty And Also Very Good At Minimizing Risk. That’s The Classic Entrepreneur.",
+            "By": "Mohnish Pabrai"
+        },
+        {
+            "Quote": "We May Encounter Many Defeats But We Must Not Be Defeated.",
+            "By": "Maya Angelou"
+        },
+        {
+            "Quote": "Knowing Is Not Enough; We Must Apply. Wishing Is Not Enough; We Must Do.",
+            "By": "Johann Wolfgang Von Goethe"
+        },
+        {
+            "Quote": "Imagine Your Life Is Perfect In Every Respect; What Would It Look Like?",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "We Generate Fears While We Sit. We Overcome Them By Action.",
+            "By": "Dr. Henry Link"
+        },
+        {
+            "Quote": "Whether You Think You Can Or Think You Can’t, You’re Right.",
+            "By": "Henry Ford"
+        },
+        {
+            "Quote": "Security Is Mostly A Superstition. Life Is Either A Daring Adventure Or Nothing.",
+            "By": "Helen Keller"
+        },
+        {
+            "Quote": "The Man Who Has Confidence In Himself Gains The Confidence Of Others.",
+            "By": "Hasidic Proverb"
+        },
+        {
+            "Quote": "The Only Limit To Our Realization Of Tomorrow Will Be Our Doubts Of Today.",
+            "By": "Franklin D. Roosevelt"
+        },
+        {
+            "Quote": "Creativity Is Intelligence Having Fun.",
+            "By": "Albert Einstein"
+        },
+        {
+            "Quote": "What You Lack In Talent Can Be Made Up With Desire, Hustle And Giving 110% All The Time.",
+            "By": "Don Zimmer"
+        },
+        {
+            "Quote": "Do What You Can With All You Have, Wherever You Are.",
+            "By": "Theodore Roosevelt"
+        },
+        {
+            "Quote": "Develop An ‘Attitude Of Gratitude’. Say Thank You To Everyone You Meet For Everything They Do For You.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "You Are Never Too Old To Set Another Goal Or To Dream A New Dream.",
+            "By": "C.S. Lewis"
+        },
+        {
+            "Quote": "To See What Is Right And Not Do It Is A Lack Of Courage.",
+            "By": "Confucius"
+        },
+        {
+            "Quote": "Reading Is To The Mind, As Exercise Is To The Body.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "Fake It Until You Make It! Act As If You Had All The Confidence You Require Until It Becomes Your Reality.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "The Future Belongs To The Competent. Get Good, Get Better, Be The Best!",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "For Every Reason It’s Not Possible, There Are Hundreds Of People Who Have Faced The Same Circumstances And Succeeded.",
+            "By": "Jack Canfield"
+        },
+        {
+            "Quote": "Things Work Out Best For Those Who Make The Best Of How Things Work Out.",
+            "By": "John Wooden"
+        },
+        {
+            "Quote": "A Room Without Books Is Like A Body Without A Soul.",
+            "By": "Marcus Tullius Cicero"
+        },
+        {
+            "Quote": "I Think Goals Should Never Be Easy, They Should Force You To Work, Even If They Are Uncomfortable At The Time.",
+            "By": "Michael Phelps"
+        },
+        {
+            "Quote": "One Of The Lessons That I Grew Up With Was To Always Stay True To Yourself And Never Let What Somebody Else Says Distract You From Your Goals.",
+            "By": "Michelle Obama"
+        },
+        {
+            "Quote": "Today’s Accomplishments Were Yesterday’s Impossibilities.",
+            "By": "Robert H. Schuller"
+        },
+        {
+            "Quote": "The Only Way To Do Great Work Is To Love What You Do. If You Haven’t Found It Yet, Keep Looking. Don’t Settle.",
+            "By": "Steve Jobs"
+        },
+        {
+            "Quote": "You Don’t Have To Be Great To Start, But You Have To Start To Be Great.",
+            "By": "Zig Ziglar"
+        },
+        {
+            "Quote": "A Clear Vision, Backed By Definite Plans, Gives You A Tremendous Feeling Of Confidence And Personal Power.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "There Are No Limits To What You Can Accomplish, Except The Limits You Place On Your Own Thinking.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "Integrity Is The Most Valuable And Respected Quality Of Leadership. Always Keep Your Word.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "Leadership Is The Ability To Get Extraordinary Achievement From Ordinary People.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "Leaders Set High Standards. Refuse To Tolerate Mediocrity Or Poor Performance.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "Clarity Is The Key To Effective Leadership. What Are Your Goals?",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "The Best Leaders Have A High Consideration Factor. They Really Care About Their People.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "Leaders Think And Talk About The Solutions. Followers Think And Talk About The Problems.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "The Key Responsibility Of Leadership Is To Think About The Future. No One Else Can Do It For You.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "The Effective Leader Recognizes That They Are More Dependent On Their People Than They Are On Them. Walk Softly.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "Leaders Never Use The Word Failure. They Look Upon Setbacks As Learning Experiences.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "Practice Golden Rule Management In Everything You Do. Manage Others The Way You Would Like To Be Managed.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "Superior Leaders Are Willing To Admit A Mistake And Cut Their Losses. Be Willing To Admit That You’ve Changed Your Mind. Don’t Persist When The Original Decision Turns Out To Be A Poor One.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "Leaders Are Anticipatory Thinkers. They Consider All Consequences Of Their Behaviors Before They Act.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "The True Test Of Leadership Is How Well You Function In A Crisis.",
+            "By": "Brian Tracy"
+        },
+        {
+            "Quote": "Leaders Concentrate Single-Mindedly On One Thing– The Most Important Thing, And They Stay At It Until It’s Complete.",
+            "By": "Brian Tracy"
+        }
+    ]
+}

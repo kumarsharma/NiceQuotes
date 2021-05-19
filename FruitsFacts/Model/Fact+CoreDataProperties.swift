@@ -16,9 +16,9 @@ extension Fact {
         return NSFetchRequest<Fact>(entityName: "Fact")
     }
 
-    @NSManaged public var factId: String?
-    @NSManaged public var factText: String?
-    @NSManaged public var factFor: String?
+    @NSManaged public var quoteId: String?
+    @NSManaged public var quoteText: String?
+    @NSManaged public var quoteBy: String?
     @NSManaged public var reference: String?
     @NSManaged public var isFavourite: Bool
     @NSManaged public var isLiked: Bool
