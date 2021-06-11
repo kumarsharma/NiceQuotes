@@ -21,16 +21,16 @@ class FruitsFactsTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testNextQuote(){
+    func testNextQuote() {
         
         let result = presenter.nextQuoteText()
-        XCTAssert(result.count>0, "Method did not return any quote!")
+        XCTAssert(result.isEmpty, "Method did not return any quote!")
     }
     
-    func testPreviousQuote(){
+    func testPreviousQuote() {
         
         let result = presenter.previousQuoteText()
-        XCTAssert(result.count>0, "Method did not return any quote!")
+        XCTAssert(result.isEmpty, "Method did not return any quote!")
     }
 
 }

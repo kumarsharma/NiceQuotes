@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Fact {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Fact> {
@@ -23,9 +22,9 @@ extension Fact {
     @NSManaged public var isFavourite: Bool
     @NSManaged public var isLiked: Bool
     @NSManaged public var isUnliked: Bool
-
+    
 }
 
-extension Fact : Identifiable {
+extension Fact: Identifiable {
 
 }

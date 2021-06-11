@@ -10,5 +10,5 @@ import UIKit
 
 class MVPresenter: NSObject {
     
-     var delegate : ViewUpdateProtocol!
+    var delegate: ViewUpdateProtocol!
 }

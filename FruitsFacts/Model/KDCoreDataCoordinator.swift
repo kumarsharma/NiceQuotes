@@ -9,11 +9,11 @@
 import UIKit
 import CoreData
 
-let sharedCoredataCoordinator = KDCoreDataCoordinator ()
+let sharedCoredataCoordinator = KDCoreDataCoordinator()
 
 class KDCoreDataCoordinator: NSObject {
 
-    var allQuotes : NSArray?
+    var allQuotes: NSArray?
     
     override init() {
             
@@ -25,14 +25,13 @@ class KDCoreDataCoordinator: NSObject {
     
     func fetchQuoteCount() -> NSInteger {
         
-        var count : NSInteger = 0
+        var count: NSInteger = 0
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Fact")
         
-        do{
+        do {
             
             try count = self.persistentContainer.viewContext.count(for: fetchRequest)
-        }
-        catch let error as NSError{
+        } catch let error as NSError {
             
             print(error.description)
         }
@@ -40,70 +39,68 @@ class KDCoreDataCoordinator: NSObject {
         return count
     }
     
-    func fetchQuote(atIndex:NSInteger) -> Fact {
+    func fetchQuote(atIndex: NSInteger) -> Fact {
         
-        if(allQuotes == nil){
+        if allQuotes == nil {
         
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Fact")
-            do{
+            do {
                 
                 allQuotes = try self.persistentContainer.viewContext.fetch(fetchRequest) as NSArray
                 
-            }catch _ as NSError{
+            } catch _ as NSError {
                 
             }
         }
         
         let index = atIndex >= allQuotes!.count ? allQuotes!.count-1 : atIndex
         
-        return allQuotes?.object(at: index) as! Fact
+        return (allQuotes?.object(at: index) as? Fact)!
     }
     
     func storeInitialQuotesIfNeeded() {
         
-        
-        if(self.fetchQuoteCount()>0){
+        if self.fetchQuoteCount()>0 {
          
             return
         }
         
-        var data : Data?
+        var data: Data?
         
-        do{
+        do {
             
             data = try Data(contentsOf: Bundle.main.url(forResource: "Sample_Quotes", withExtension: "txt")!)
-        }catch let error as NSError{
+        } catch let error as NSError {
             
             print("Could not load sample file: \(error.userInfo)")
             return
         }
 
-        var quoteDict : Dictionary<String, Any>?
+        var quoteDict: [String: Any]?
         
-        do{
+        do {
             
-            quoteDict = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:Any]
+            quoteDict = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any]
             
-        }
-        catch let error as NSError{
+        } catch let error as NSError {
             
             print("error in parsing sample quotes \(error.userInfo)")
         }
         
         let quotes = quoteDict?.values.first
         
-        if(quotes != nil){
+        if quotes != nil {
             
-            for quote_ar in quotes as! Array<NSDictionary>{
+            for quoteAr in (quotes as? [NSDictionary])! {
 
-                _ = self.createQuoteFrom(dictionary: quote_ar)
+                _ = self.createQuoteFrom(dictionary: quoteAr)
                 
             }
             
-            do{
+            do {
             
                 try self.persistentContainer.viewContext.save()
-            }catch _ as NSError{
+            } catch _ as NSError {
                 
             }
         }
@@ -111,7 +108,7 @@ class KDCoreDataCoordinator: NSObject {
     
     func createQuoteFrom(dictionary: NSDictionary) -> Fact {
         
-        var aFact : Fact!
+        var aFact: Fact!
         
         let quoteEntity = NSEntityDescription.entity(forEntityName: "Fact", in: self.persistentContainer.viewContext)
         aFact = NSManagedObject(entity: quoteEntity!, insertInto: self.persistentContainer.viewContext) as? Fact
@@ -126,7 +123,7 @@ class KDCoreDataCoordinator: NSObject {
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
 
         let container = NSPersistentCloudKitContainer(name: "FruitsFacts")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
 
                 fatalError("Unresolved error \(error), \(error.userInfo)")

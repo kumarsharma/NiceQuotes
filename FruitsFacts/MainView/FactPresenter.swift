@@ -8,71 +8,48 @@
 import UIKit
 
 class FactPresenter: MVPresenter {
-    
-    weak var titleLabel : UILabel?
-    weak var textArea : UILabel?
-    var currentIndex : NSInteger? = 0
-    
-    override init()
-    {
+    weak var titleLabel: UILabel?
+    weak var textArea: UILabel?
+    var currentIndex: NSInteger? = 0
+    override init() {
         super.init()
     }
 
-    init(title_Label:UILabel?, textView:UILabel?)
-    {
-        self.titleLabel = title_Label
+    init(titlelabel: UILabel?, textView: UILabel?) {
+        self.titleLabel = titlelabel
         self.textArea = textView
-        
         super.init()
     }
-    
-    func viewDidLoad(){
-        
+    func viewDidLoad() {
         let quote = sharedCoredataCoordinator.fetchQuote(atIndex: currentIndex!)
         currentIndex! = currentIndex!+1
         self.titleLabel?.text = "Nice Quote"
-        
-        self.textArea?.text = quote.quoteText!+"\n\n-- \(quote.quoteBy ?? "")" //"Apples, peaches and raspberries are all members of the rose family."
+        self.textArea?.text = quote.quoteText!+"\n\n-- \(quote.quoteBy ?? "")"
     }
-    
-    func didSwipeUp(){
-        
-       
+    func didSwipeUp() {
         let quote = self.nextQuote()
-        self.textArea?.text = quote.quoteText!+"\n\n-- \(quote.quoteBy ?? "")" //"Apples, peaches and raspberries are all members of the rose family."        
+        self.textArea?.text = quote.quoteText!+"\n\n-- \(quote.quoteBy ?? "")"        
     }
-    
-    func didSwipeDown(){
-        
+    func didSwipeDown() {
         let quote = self.prevQuote()
-        
-        self.textArea?.text = quote.quoteText!+"\n\n-- \(quote.quoteBy ?? "")" //"Apples, peaches and raspberries are all members of the rose family."0
+        self.textArea?.text = quote.quoteText!+"\n\n-- \(quote.quoteBy ?? "")"
     }
-    
     func nextQuoteText() -> String {
-        
         let quote = self.nextQuote()
         return quote.quoteText!
     }
-    
     func previousQuoteText() -> String {
-        
         let quote = self.prevQuote()
         return quote.quoteText!
     }
-    
     // private members
-    private func nextQuote() -> Fact{
-        
+    private func nextQuote() -> Fact {
         currentIndex! = currentIndex!+1 
         let quote = sharedCoredataCoordinator.fetchQuote(atIndex: currentIndex!)
         return quote
     }
-    
-    private func prevQuote() -> Fact{
-        
-        if(currentIndex!>0){
-            
+    private func prevQuote() -> Fact {
+        if currentIndex!>0 {
             currentIndex! = currentIndex!-1
         }
         let quote = sharedCoredataCoordinator.fetchQuote(atIndex: currentIndex!)
