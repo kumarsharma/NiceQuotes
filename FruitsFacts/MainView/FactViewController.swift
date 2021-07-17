@@ -33,7 +33,7 @@ class FactViewController: UIViewController {
         
         self.backgroundView = UIImageView(frame: self.view.bounds)
         self.backgroundView?.image = UIImage(named: "Bg")
-        self.backgroundView?.autoresizingMask = UIView.AutoresizingMask.flexibleWidth
+        self.backgroundView?.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleBottomMargin]
         self.backgroundView?.contentMode = UIView.ContentMode.scaleAspectFill
         self.backgroundView?.clipsToBounds = true
  
@@ -63,6 +63,8 @@ class FactViewController: UIViewController {
     
     @objc func btnAction() {
         
+        let settingsVc = SettingsTableViewController.init(style: UITableView.Style.grouped)
+        self.navigationController?.pushViewController(settingsVc, animated: true)
     }
     
     @objc private func didSwipeUp() {

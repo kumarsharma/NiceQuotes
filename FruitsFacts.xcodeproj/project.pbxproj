@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE22170926A333E200612738 /* KDPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE22170726A333E200612738 /* KDPickerController.swift */; };
+		CE22170A26A333E200612738 /* OPColorPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE22170826A333E200612738 /* OPColorPickerController.swift */; };
 		CE461C3226528D330052DA33 /* Sample_Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE461C3126528D330052DA33 /* Sample_Quotes.txt */; };
+		CE5A65E9268A29FF007A8585 /* QuoteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A65E8268A29FF007A8585 /* QuoteListController.swift */; };
+		CE5A65F1268A2AA2007A8585 /* QuotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A65F0268A2AA2007A8585 /* QuotePresenter.swift */; };
 		CE6AA1DD26550A48000D86B1 /* Bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6AA1DC26550A48000D86B1 /* Bg.png */; };
 		CE76FD2A264BE0190092709A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD29264BE0190092709A /* AppDelegate.swift */; };
 		CE76FD2C264BE0190092709A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD2B264BE0190092709A /* SceneDelegate.swift */; };
@@ -25,6 +29,7 @@
 		CE76FD7E264C04D00092709A /* ViewUpdateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD7C264C04D00092709A /* ViewUpdateProtocol.swift */; };
 		CE76FD7F264C04D00092709A /* MVPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD7D264C04D00092709A /* MVPresenter.swift */; };
 		CEB343AB264C0FF500EABE73 /* KDCoreDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB343AA264C0FF500EABE73 /* KDCoreDataCoordinator.swift */; };
+		CEBE14FF2673B10100DCC931 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE14FE2673B10100DCC931 /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE22170726A333E200612738 /* KDPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDPickerController.swift; sourceTree = "<group>"; };
+		CE22170826A333E200612738 /* OPColorPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPColorPickerController.swift; sourceTree = "<group>"; };
 		CE26AC962654ADD9004E0549 /* FruitsFacts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FruitsFacts.entitlements; sourceTree = "<group>"; };
 		CE461C3126528D330052DA33 /* Sample_Quotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample_Quotes.txt; sourceTree = "<group>"; };
+		CE5A65E8268A29FF007A8585 /* QuoteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListController.swift; sourceTree = "<group>"; };
+		CE5A65F0268A2AA2007A8585 /* QuotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotePresenter.swift; sourceTree = "<group>"; };
 		CE6AA1DC26550A48000D86B1 /* Bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bg.png; sourceTree = "<group>"; };
 		CE76FD26264BE0190092709A /* FruitsFacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitsFacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE76FD29264BE0190092709A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +79,7 @@
 		CE76FD7C264C04D00092709A /* ViewUpdateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUpdateProtocol.swift; sourceTree = "<group>"; };
 		CE76FD7D264C04D00092709A /* MVPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVPresenter.swift; sourceTree = "<group>"; };
 		CEB343AA264C0FF500EABE73 /* KDCoreDataCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCoreDataCoordinator.swift; sourceTree = "<group>"; };
+		CEBE14FE2673B10100DCC931 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		CE5A65E7268A29D6007A8585 /* QuoteList */ = {
+			isa = PBXGroup;
+			children = (
+				CE5A65E8268A29FF007A8585 /* QuoteListController.swift */,
+				CE5A65F0268A2AA2007A8585 /* QuotePresenter.swift */,
+			);
+			path = QuoteList;
+			sourceTree = "<group>";
+		};
 		CE76FD1D264BE0190092709A = {
 			isa = PBXGroup;
 			children = (
@@ -129,12 +148,14 @@
 		CE76FD28264BE0190092709A /* FruitsFacts */ = {
 			isa = PBXGroup;
 			children = (
+				CE5A65E7268A29D6007A8585 /* QuoteList */,
 				CE26AC962654ADD9004E0549 /* FruitsFacts.entitlements */,
 				CE461C3026528D240052DA33 /* Resources */,
 				CE797F6E264D43DF0037088E /* Storyboards */,
 				CE797F6D264D43B20037088E /* AppDelegate */,
 				CE76FD7B264C04B80092709A /* Protocols */,
 				CE76FD70264BEE7D0092709A /* MainView */,
+				CEBE14FD2673B0D300DCC931 /* SettingsView */,
 				CE76FD5F264BE8D90092709A /* Model */,
 				CE76FD2D264BE0190092709A /* ViewController.swift */,
 				CE76FD35264BE01C0092709A /* Assets.xcassets */,
@@ -206,6 +227,16 @@
 				CE76FD37264BE01C0092709A /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CEBE14FD2673B0D300DCC931 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				CEBE14FE2673B10100DCC931 /* SettingsTableViewController.swift */,
+				CE22170726A333E200612738 /* KDPickerController.swift */,
+				CE22170826A333E200612738 /* OPColorPickerController.swift */,
+			);
+			path = SettingsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,13 +396,18 @@
 				CE76FD7E264C04D00092709A /* ViewUpdateProtocol.swift in Sources */,
 				CE76FD62264BE8FF0092709A /* Fact+CoreDataClass.swift in Sources */,
 				CE76FD2E264BE0190092709A /* ViewController.swift in Sources */,
+				CE22170926A333E200612738 /* KDPickerController.swift in Sources */,
 				CEB343AB264C0FF500EABE73 /* KDCoreDataCoordinator.swift in Sources */,
 				CE76FD2A264BE0190092709A /* AppDelegate.swift in Sources */,
 				CE76FD63264BE8FF0092709A /* Fact+CoreDataProperties.swift in Sources */,
 				CE76FD7F264C04D00092709A /* MVPresenter.swift in Sources */,
+				CE22170A26A333E200612738 /* OPColorPickerController.swift in Sources */,
 				CE76FD77264C04700092709A /* FactPresenter.swift in Sources */,
+				CEBE14FF2673B10100DCC931 /* SettingsTableViewController.swift in Sources */,
+				CE5A65F1268A2AA2007A8585 /* QuotePresenter.swift in Sources */,
 				CE76FD34264BE0190092709A /* FruitsFacts.xcdatamodeld in Sources */,
 				CE76FD2C264BE0190092709A /* SceneDelegate.swift in Sources */,
+				CE5A65E9268A29FF007A8585 /* QuoteListController.swift in Sources */,
 				CE76FD72264BF1AD0092709A /* FactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

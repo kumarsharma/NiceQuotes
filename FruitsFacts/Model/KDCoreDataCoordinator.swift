@@ -58,6 +58,23 @@ class KDCoreDataCoordinator: NSObject {
         return (allQuotes?.object(at: index) as? Fact)!
     }
     
+    func factFetchedResultController() -> NSFetchedResultsController<Fact> {
+        
+        let fetchRequest = NSFetchRequest<Fact>(entityName: "Fact")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "quoteText", ascending: true)]
+        let context = self.persistentContainer.viewContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        do {
+            
+            try frc.performFetch()
+        } catch _ as NSError {
+            
+        }
+        
+        return frc
+    }
+    
     func storeInitialQuotesIfNeeded() {
         
         if self.fetchQuoteCount()>0 {
@@ -108,15 +125,27 @@ class KDCoreDataCoordinator: NSObject {
     
     func createQuoteFrom(dictionary: NSDictionary) -> Fact {
         
-        var aFact: Fact!
+        let text = dictionary.value(forKey: "Quote") as? String
+        let author = dictionary.value(forKey: "By") as? String
+        return self.addQuote(text: text!, author: author!)
+    }
+    
+    func addQuote(text: String, author: String) -> Fact {
         
+        var aFact: Fact!
         let quoteEntity = NSEntityDescription.entity(forEntityName: "Fact", in: self.persistentContainer.viewContext)
         aFact = NSManagedObject(entity: quoteEntity!, insertInto: self.persistentContainer.viewContext) as? Fact
         aFact.quoteId = Date().description
-        aFact.quoteText = dictionary.value(forKey: "Quote") as? String
-        aFact.quoteBy = dictionary.value(forKey: "By") as? String
+        aFact.quoteText = text
+        aFact.quoteBy = author
         
         return aFact
+    }
+    
+    func delete(quote: Fact) {
+        
+        self.persistentContainer.viewContext.delete(quote)
+        self.saveContext()
     }
     
     // MARK: - Core Data stack
