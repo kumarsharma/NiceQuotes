@@ -189,7 +189,7 @@ class KDCoreDataCoordinator: NSObject {
         config.backgroundMode = "Color"
         config.bgColorCode = "FFADD6"
         config.textColorCode = "FFFFFF"
-        config.audioFileName = "Relaxing"
+        config.audioFileName = "Creative_Minds"
         return config
     }
     

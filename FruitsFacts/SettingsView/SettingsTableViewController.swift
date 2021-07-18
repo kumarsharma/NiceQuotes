@@ -132,17 +132,6 @@ class SettingsTableViewController: UITableViewController {
             let nav = UINavigationController(rootViewController: colorVc)
             nav.navigationBar.barStyle = .black
             
-            /*if UIDevice.current.userInterfaceIdiom == .pad {
-                
-                nav.modalPresentationStyle = .popover
-                let viewPresentationController = nav.popoverPresentationController
-                if let presentationController = viewPresentationController {
-                    presentationController.sourceView = cell
-                    presentationController.permittedArrowDirections = UIPopoverArrowDirection.left
-                }
-                nav.preferredContentSize=CGSize(width: 550, height: 550)
-            }*/
-            
             self.present(nav, animated: true, completion: nil)
         } else if indexPath.section == 1 && indexPath.row == 3 {
             

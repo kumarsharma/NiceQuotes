@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PickerType : Int {
+enum PickerType: Int {
     
     case text = 1
     case sound = 2
