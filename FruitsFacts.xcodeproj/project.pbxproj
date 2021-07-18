@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		CE22170926A333E200612738 /* KDPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE22170726A333E200612738 /* KDPickerController.swift */; };
 		CE22170A26A333E200612738 /* OPColorPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE22170826A333E200612738 /* OPColorPickerController.swift */; };
+		CE22171026A3413400612738 /* Config+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE22170E26A3413400612738 /* Config+CoreDataClass.swift */; };
+		CE22171126A3413400612738 /* Config+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE22170F26A3413400612738 /* Config+CoreDataProperties.swift */; };
+		CE22171D26A3451B00612738 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE22171C26A3451B00612738 /* UIColor+Hex.swift */; };
+		CE23066026A3E00600588A39 /* OPColorPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23065F26A3E00600588A39 /* OPColorPickerDelegate.swift */; };
+		CE23066526A3ED7000588A39 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23066426A3ED7000588A39 /* Constants.swift */; };
+		CE23066A26A3FA3100588A39 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE23066926A3FA3100588A39 /* colorPalette.plist */; };
+		CE23067426A40F3100588A39 /* sound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23067226A40F3100588A39 /* sound2.mp3 */; };
+		CE23067526A40F3100588A39 /* sound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23067326A40F3100588A39 /* sound1.mp3 */; };
 		CE461C3226528D330052DA33 /* Sample_Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE461C3126528D330052DA33 /* Sample_Quotes.txt */; };
 		CE5A65E9268A29FF007A8585 /* QuoteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A65E8268A29FF007A8585 /* QuoteListController.swift */; };
 		CE5A65F1268A2AA2007A8585 /* QuotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A65F0268A2AA2007A8585 /* QuotePresenter.swift */; };
@@ -52,6 +60,14 @@
 /* Begin PBXFileReference section */
 		CE22170726A333E200612738 /* KDPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDPickerController.swift; sourceTree = "<group>"; };
 		CE22170826A333E200612738 /* OPColorPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPColorPickerController.swift; sourceTree = "<group>"; };
+		CE22170E26A3413400612738 /* Config+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Config+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE22170F26A3413400612738 /* Config+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Config+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE22171C26A3451B00612738 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		CE23065F26A3E00600588A39 /* OPColorPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPColorPickerDelegate.swift; sourceTree = "<group>"; };
+		CE23066426A3ED7000588A39 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CE23066926A3FA3100588A39 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
+		CE23067226A40F3100588A39 /* sound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound2.mp3; sourceTree = "<group>"; };
+		CE23067326A40F3100588A39 /* sound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound1.mp3; sourceTree = "<group>"; };
 		CE26AC962654ADD9004E0549 /* FruitsFacts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FruitsFacts.entitlements; sourceTree = "<group>"; };
 		CE461C3126528D330052DA33 /* Sample_Quotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample_Quotes.txt; sourceTree = "<group>"; };
 		CE5A65E8268A29FF007A8585 /* QuoteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListController.swift; sourceTree = "<group>"; };
@@ -107,11 +123,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE22171B26A3451000612738 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				CE22171C26A3451B00612738 /* UIColor+Hex.swift */,
+				CE23066426A3ED7000588A39 /* Constants.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		CE23066E26A40C9F00588A39 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				CE23067326A40F3100588A39 /* sound1.mp3 */,
+				CE23067226A40F3100588A39 /* sound2.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		CE461C3026528D240052DA33 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE23066E26A40C9F00588A39 /* Sounds */,
 				CE6AA1DC26550A48000D86B1 /* Bg.png */,
 				CE461C3126528D330052DA33 /* Sample_Quotes.txt */,
+				CE23066926A3FA3100588A39 /* colorPalette.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -148,6 +184,7 @@
 		CE76FD28264BE0190092709A /* FruitsFacts */ = {
 			isa = PBXGroup;
 			children = (
+				CE22171B26A3451000612738 /* Tools */,
 				CE5A65E7268A29D6007A8585 /* QuoteList */,
 				CE26AC962654ADD9004E0549 /* FruitsFacts.entitlements */,
 				CE461C3026528D240052DA33 /* Resources */,
@@ -188,6 +225,8 @@
 				CEB343AA264C0FF500EABE73 /* KDCoreDataCoordinator.swift */,
 				CE76FD60264BE8FF0092709A /* Fact+CoreDataClass.swift */,
 				CE76FD61264BE8FF0092709A /* Fact+CoreDataProperties.swift */,
+				CE22170E26A3413400612738 /* Config+CoreDataClass.swift */,
+				CE22170F26A3413400612738 /* Config+CoreDataProperties.swift */,
 				CE76FD32264BE0190092709A /* FruitsFacts.xcdatamodeld */,
 			);
 			path = Model;
@@ -207,6 +246,7 @@
 			children = (
 				CE76FD7D264C04D00092709A /* MVPresenter.swift */,
 				CE76FD7C264C04D00092709A /* ViewUpdateProtocol.swift */,
+				CE23065F26A3E00600588A39 /* OPColorPickerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -345,9 +385,12 @@
 			files = (
 				CE6AA1DD26550A48000D86B1 /* Bg.png in Resources */,
 				CE76FD39264BE01C0092709A /* LaunchScreen.storyboard in Resources */,
+				CE23067526A40F3100588A39 /* sound1.mp3 in Resources */,
 				CE461C3226528D330052DA33 /* Sample_Quotes.txt in Resources */,
 				CE76FD36264BE01C0092709A /* Assets.xcassets in Resources */,
+				CE23066A26A3FA3100588A39 /* colorPalette.plist in Resources */,
 				CE76FD31264BE0190092709A /* Main.storyboard in Resources */,
+				CE23067426A40F3100588A39 /* sound2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,18 +436,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE22171026A3413400612738 /* Config+CoreDataClass.swift in Sources */,
 				CE76FD7E264C04D00092709A /* ViewUpdateProtocol.swift in Sources */,
 				CE76FD62264BE8FF0092709A /* Fact+CoreDataClass.swift in Sources */,
 				CE76FD2E264BE0190092709A /* ViewController.swift in Sources */,
 				CE22170926A333E200612738 /* KDPickerController.swift in Sources */,
+				CE23066026A3E00600588A39 /* OPColorPickerDelegate.swift in Sources */,
 				CEB343AB264C0FF500EABE73 /* KDCoreDataCoordinator.swift in Sources */,
 				CE76FD2A264BE0190092709A /* AppDelegate.swift in Sources */,
 				CE76FD63264BE8FF0092709A /* Fact+CoreDataProperties.swift in Sources */,
 				CE76FD7F264C04D00092709A /* MVPresenter.swift in Sources */,
+				CE22171126A3413400612738 /* Config+CoreDataProperties.swift in Sources */,
+				CE23066526A3ED7000588A39 /* Constants.swift in Sources */,
 				CE22170A26A333E200612738 /* OPColorPickerController.swift in Sources */,
 				CE76FD77264C04700092709A /* FactPresenter.swift in Sources */,
 				CEBE14FF2673B10100DCC931 /* SettingsTableViewController.swift in Sources */,
 				CE5A65F1268A2AA2007A8585 /* QuotePresenter.swift in Sources */,
+				CE22171D26A3451B00612738 /* UIColor+Hex.swift in Sources */,
 				CE76FD34264BE0190092709A /* FruitsFacts.xcdatamodeld in Sources */,
 				CE76FD2C264BE0190092709A /* SceneDelegate.swift in Sources */,
 				CE5A65E9268A29FF007A8585 /* QuoteListController.swift in Sources */,

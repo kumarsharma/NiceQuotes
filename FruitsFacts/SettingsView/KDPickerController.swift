@@ -16,21 +16,24 @@ protocol KDPickerDelegate {
 
 class KDPickerController: UITableViewController {
 
-    var itemList:NSArray?
-    var selectedItem:String?
-    var delegate:KDPickerDelegate?
-    var soundEffect : AVAudioPlayer?
+    var itemList: NSArray?
+    var selectedItem: String?
+    var delegate: KDPickerDelegate?
+    var soundEffect: AVAudioPlayer?
     var currentCell: UITableViewCell?
-    var selectedIndexPath : IndexPath?
+    var selectedIndexPath: IndexPath?
+    var pickerType: PickerType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title="Select an Item"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "closeIcn"), style: UIBarButtonItem.Style.done, target: self, action: #selector(cancelBtnAction))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "doneIcn"), style: UIBarButtonItem.Style.done, target: self, action: #selector(doneBtnAction))
+        let bar1 = UIBarButtonItem(image: UIImage(named: "closeIcn"), style: .done, target: self, action: #selector(cancelBtnAction))
+        let bar2 = UIBarButtonItem(image: UIImage(named: "doneIcn"), style: .done, target: self, action: #selector(doneBtnAction))
+        self.navigationItem.leftBarButtonItem = bar1
+        self.navigationItem.rightBarButtonItem = bar2
         
-        if (itemList?.contains(self.selectedItem as Any))!{
+        if (itemList?.contains(self.selectedItem as Any))! {
             
             self.selectedIndexPath = IndexPath(row: (self.itemList?.index(of: self.selectedItem!))!, section: 0)
         }
@@ -41,28 +44,28 @@ class KDPickerController: UITableViewController {
         
         super.viewDidAppear(animated)
         
-        if self.selectedIndexPath != nil{
+        if self.selectedIndexPath != nil {
             
             self.tableView.scrollToRow(at: self.selectedIndexPath!, at: UITableView.ScrollPosition.middle, animated: false)
         }
     }
     
-    @objc func populateSelectedColor(){
+    @objc func populateSelectedColor() {
         
-        if self.selectedIndexPath != nil{
+        if self.selectedIndexPath != nil {
             
             self.tableView.scrollToRow(at: self.selectedIndexPath!, at: UITableView.ScrollPosition.middle, animated: false)
         }
     }
     
-    @objc func cancelBtnAction(){
+    @objc func cancelBtnAction() {
         
         self.dismiss(animated: true, completion: nil)
     }
     
-    @objc func doneBtnAction(){
+    @objc func doneBtnAction() {
         
-        if self.delegate != nil{
+        if self.delegate != nil {
             
             self.delegate?.didSelectItem(item: self.selectedItem!)
         }
@@ -86,13 +89,12 @@ class KDPickerController: UITableViewController {
         let item = self.itemList?.object(at: indexPath.row) as? String
         cell.textLabel?.text = item
         
-        if selectedItem != nil{
+        if selectedItem != nil {
             
-            if selectedItem == item{
+            if selectedItem == item {
                 cell.accessoryType=UITableViewCell.AccessoryType.checkmark
                 
-            }
-            else{
+            } else {
                 cell.accessoryType=UITableViewCell.AccessoryType.none
             }
             currentCell=cell
@@ -104,19 +106,29 @@ class KDPickerController: UITableViewController {
         
         let item = self.itemList?.object(at: indexPath.row) as? String
         self.selectedItem=item
-        let path = Bundle.main.path(forResource: "\(item!)", ofType: "m4r")!
-        let url = URL(fileURLWithPath: path)
-        do {
+        
+        if self.pickerType == PickerType.sound {
             
-            soundEffect=try AVAudioPlayer(contentsOf: url)
-            soundEffect?.play()
-        }catch {
-            
+            let path = Bundle.main.path(forResource: "\(item!)", ofType: "m4r")!
+            let url = URL(fileURLWithPath: path)
+            do {
+                
+                soundEffect=try AVAudioPlayer(contentsOf: url)
+                soundEffect?.play()
+            } catch {
+                
+            }
         }
         
         let cell = tableView.cellForRow(at: indexPath)
-        cell?.accessoryType=UITableViewCell.AccessoryType.checkmark
+        cell?.accessoryType = UITableViewCell.AccessoryType.checkmark
         currentCell?.accessoryType = UITableViewCell.AccessoryType.none
-        currentCell=cell
+        currentCell = cell
+        
+        if self.delegate != nil {
+            
+            self.delegate?.didSelectItem(item: self.selectedItem!)
+        }
+        self.dismiss(animated: true, completion: nil)
     }
 }

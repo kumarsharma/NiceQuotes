@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="Config" representedClassName="Config" syncable="YES" codeGenerationType="class">
-        <attribute name="autoPlay" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    <entity name="Config" representedClassName="Config" syncable="YES">
+        <attribute name="audioFileName" optional="YES" attributeType="String"/>
+        <attribute name="autoPlay" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="backgroundMode" optional="YES" attributeType="String" defaultValueString="Color"/>
+        <attribute name="bgColorCode" optional="YES" attributeType="String"/>
+        <attribute name="bgImageFileName" optional="YES" attributeType="String"/>
+        <attribute name="enableAudio" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
     </entity>
     <entity name="Fact" representedClassName="Fact" syncable="YES">
         <attribute name="isFavourite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
@@ -13,7 +18,7 @@
         <attribute name="reference" optional="YES" attributeType="String"/>
     </entity>
     <elements>
+        <element name="Config" positionX="-63" positionY="36" width="128" height="119"/>
         <element name="Fact" positionX="-63" positionY="-18" width="128" height="134"/>
-        <element name="Config" positionX="-63" positionY="36" width="128" height="44"/>
     </elements>
 </model>

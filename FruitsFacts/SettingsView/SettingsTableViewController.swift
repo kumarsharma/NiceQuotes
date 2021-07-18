@@ -9,6 +9,7 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    var selectedIndexPath: IndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,19 +48,25 @@ class SettingsTableViewController: UITableViewController {
                 cell?.textLabel?.text = "Quotes"
             } else {
                 cell?.textLabel?.text = "Auto Play"
-                let autoPlaySw = UISwitch(frame: CGRect(x: (cell?.frame.size.width)!-40, y: 5, width: 100, height: (cell?.frame.size.height)!))
+                let autoPlaySw = UISwitch(frame: CGRect(x: (cell?.frame.size.width)!-20, y: 5, width: 100, height: (cell?.frame.size.height)!))
                 autoPlaySw.addTarget(self, action: #selector(didChangeAutoPlaySwitchValue), for: .valueChanged)
+                autoPlaySw.isOn = (defaultConfig?.autoPlay)!
                 cell?.contentView.addSubview(autoPlaySw)
             }
         } else { 
             if indexPath.row == 0 { 
-                cell?.textLabel?.text = "Background"
+                cell?.textLabel?.text = "Background: " + (defaultConfig?.backgroundMode)!
             } else if indexPath.row == 1 {
-                cell?.textLabel?.text = "Background Color"
+                
+                cell?.textLabel?.text = "Background Color: " + (defaultConfig?.bgColorCode)!
             } else if indexPath.row == 2 {
                 cell?.textLabel?.text = "Background Image"
             } else if indexPath.row == 3 {
                 cell?.textLabel?.text = "Audio"
+                let audioSw = UISwitch(frame: CGRect(x: (cell?.frame.size.width)!-20, y: 5, width: 100, height: (cell?.frame.size.height)!))
+                audioSw.addTarget(self, action: #selector(didChangeAudioSwitchValue), for: .valueChanged)
+                audioSw.isOn = (defaultConfig?.enableAudio)!
+                cell?.contentView.addSubview(audioSw)
             } else if indexPath.row == 4 {
                 cell?.textLabel?.text = "Audio File"
             }
@@ -68,63 +75,99 @@ class SettingsTableViewController: UITableViewController {
         return cell!
     }
     
-    @objc func didChangeAutoPlaySwitchValue() {
+    @objc func didChangeAutoPlaySwitchValue(sender: UISwitch) {
         
+        defaultConfig?.autoPlay = sender.isOn
+        sharedCoredataCoordinator.saveContext()
+    }
+    
+    @objc func didChangeAudioSwitchValue(sender: UISwitch) {
         
+        defaultConfig?.enableAudio = sender.isOn
+        sharedCoredataCoordinator.saveContext()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let cell = tableView.cellForRow(at: indexPath)
+        self.selectedIndexPath = indexPath
         if indexPath.section == 0 && indexPath.row == 0 {
             
             let quoteVc: QuoteListController = QuoteListController()
             self.navigationController?.pushViewController(quoteVc, animated: true)
+        } else if indexPath.section == 1 && indexPath.row == 0 {
+            
+            let pickerVc = KDPickerController(style: UITableView.Style.grouped)
+            pickerVc.delegate=self
+            pickerVc.itemList = NSArray(array: ["Image", "Color"])
+            pickerVc.pickerType = .text
+            pickerVc.selectedItem = defaultConfig?.backgroundMode
+            let navVc = UINavigationController(rootViewController: pickerVc)
+            navVc.navigationBar.barStyle = .black
+            
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                
+                navVc.modalPresentationStyle = .popover
+                let viewPresentationController = navVc.popoverPresentationController
+                if let presentationController = viewPresentationController {
+                    
+                    presentationController.sourceView = cell
+                    presentationController.permittedArrowDirections=UIPopoverArrowDirection.down
+                }
+                navVc.preferredContentSize = CGSize(width: 300, height: 450)
+            }
+            
+            self.present(navVc, animated: true, completion: nil)
+        } else if indexPath.section == 1 && indexPath.row == 1 {
+            
+            let layout = UICollectionViewFlowLayout()
+            layout.itemSize = CGSize(width: 100, height: 100)
+            layout.scrollDirection = .vertical
+            let colorVc = OPColorPickerController(collectionViewLayout: layout)
+            colorVc.delegate=self
+            let nav = UINavigationController(rootViewController: colorVc)
+            nav.navigationBar.barStyle = .black
+            
+            /*if UIDevice.current.userInterfaceIdiom == .pad {
+                
+                nav.modalPresentationStyle = .popover
+                let viewPresentationController = nav.popoverPresentationController
+                if let presentationController = viewPresentationController {
+                    presentationController.sourceView = cell
+                    presentationController.permittedArrowDirections = UIPopoverArrowDirection.left
+                }
+                nav.preferredContentSize=CGSize(width: 550, height: 550)
+            }*/
+            
+            self.present(nav, animated: true, completion: nil)
         }
     }
+}
+
+extension SettingsTableViewController: KDPickerDelegate {
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func didSelectItem(item: String) {
+        
+        let cell = tableView.cellForRow(at: self.selectedIndexPath!)
+        if self.selectedIndexPath?.section == 1 && self.selectedIndexPath?.row == 0 {
+            
+            cell?.textLabel?.text = "Background: " + item
+            defaultConfig?.backgroundMode = item
+            sharedCoredataCoordinator.saveContext()
+        }
     }
-    */
+}
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+extension SettingsTableViewController: OPColorPickerDelegate {
+    
+    func didSelectColorHex(colorHex: String) {
+        
+        let cell = tableView.cellForRow(at: self.selectedIndexPath!)
+        if self.selectedIndexPath?.section == 1 && self.selectedIndexPath?.row == 1 {
+            
+            cell?.textLabel?.text = "Background Color: " + colorHex
+            defaultConfig?.bgColorCode = colorHex
+            sharedCoredataCoordinator.saveContext()
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

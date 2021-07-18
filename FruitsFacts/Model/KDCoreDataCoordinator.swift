@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 let sharedCoredataCoordinator = KDCoreDataCoordinator()
+var defaultConfig: Config?
 
 class KDCoreDataCoordinator: NSObject {
 
@@ -37,6 +38,37 @@ class KDCoreDataCoordinator: NSObject {
         }
         
         return count
+    }
+    
+    func fetchConfigCount() -> NSInteger {
+        
+        var count: NSInteger = 0
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Config")
+        
+        do {
+            
+            try count = self.persistentContainer.viewContext.count(for: fetchRequest)
+        } catch let error as NSError {
+            
+            print(error.description)
+        }
+        
+        return count
+    }
+    
+    func fetchDefaultConfig() -> Config {
+        
+        var allObjs: [NSManagedObject]?
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Config")
+        do {
+            
+            allObjs = try self.persistentContainer.viewContext.fetch(fetchRequest)
+            
+        } catch _ as NSError {
+            
+        }
+                
+        return (allObjs?.first as? Config)!
     }
     
     func fetchQuote(atIndex: NSInteger) -> Fact {
@@ -77,6 +109,14 @@ class KDCoreDataCoordinator: NSObject {
     
     func storeInitialQuotesIfNeeded() {
         
+        if self.fetchConfigCount() <= 0 {
+            
+            defaultConfig = self.addDefaultConfig()
+        } else {
+            
+            defaultConfig = self.fetchDefaultConfig()
+        }
+        
         if self.fetchQuoteCount()>0 {
          
             return
@@ -111,7 +151,6 @@ class KDCoreDataCoordinator: NSObject {
             for quoteAr in (quotes as? [NSDictionary])! {
 
                 _ = self.createQuoteFrom(dictionary: quoteAr)
-                
             }
             
             do {
@@ -140,6 +179,17 @@ class KDCoreDataCoordinator: NSObject {
         aFact.quoteBy = author
         
         return aFact
+    }
+    
+    func addDefaultConfig() -> Config {
+        
+        var config: Config!
+        let quoteEntity = NSEntityDescription.entity(forEntityName: "Config", in: self.persistentContainer.viewContext)
+        config = NSManagedObject(entity: quoteEntity!, insertInto: self.persistentContainer.viewContext) as? Config
+        config.backgroundMode = "Color"
+        config.bgColorCode = "9bff38"
+        config.audioFileName = "sound1"
+        return config
     }
     
     func delete(quote: Fact) {

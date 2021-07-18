@@ -10,31 +10,29 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-protocol OPColorPickerDelegate {
-    
-    func didSelectColorHex(colorHex:String)
-}
-
 class OPColorPickerController: UICollectionViewController {
 
-    var delegate : OPColorPickerDelegate? = nil
+    var delegate: OPColorPickerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title="Select an Item"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "closeIcn"), style: UIBarButtonItem.Style.done, target: self, action: #selector(cancelBtnAction))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "doneIcn"), style: UIBarButtonItem.Style.done, target: self, action: #selector(doneBtnAction))
+        self.title = "Select an Item"
+        let bar1 = UIBarButtonItem(image: UIImage(named: "closeIcn"), style: .done, target: self, action: #selector(cancelBtnAction))
+        self.navigationItem.leftBarButtonItem = bar1
+        
+        let bar2 = UIBarButtonItem(image: UIImage(named: "doneIcn"), style: .done, target: self, action: #selector(doneBtnAction))
+        self.navigationItem.rightBarButtonItem = bar2
         
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
-    @objc func cancelBtnAction(){
+    @objc func cancelBtnAction() {
            
         self.dismiss(animated: true, completion: nil)
     }
        
-    @objc func doneBtnAction(){
+    @objc func doneBtnAction() {
           
         self.dismiss(animated: true, completion: nil)
     }
@@ -44,7 +42,6 @@ class OPColorPickerController: UICollectionViewController {
         return 1
     }
 
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return 160
@@ -52,23 +49,28 @@ class OPColorPickerController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        var colors : NSArray?
-        let palettePath = Bundle.main.path(forResource: "colorPalette", ofType: "plist")
-        let plistArray = NSArray(contentsOfFile: palettePath!)
-        if let colorPalettePlistFile = plistArray{
+        var colorData: Data?
+        var colors: [AnyObject]?
+        let url = Bundle.main.url(forResource: "colorPalette", withExtension: "plist")!
+        
+        do {
+            colorData = try Data(contentsOf: url)
+        } catch _ as NSError {
             
-            colors = colorPalettePlistFile as! [String] as NSArray
+        }
+        do {
+            colors = try (PropertyListSerialization.propertyList(from: colorData!, options: [], format: nil) as? [AnyObject])
+        } catch _ as NSError {
+            
         }
         
-        let hexString = colors![indexPath.row]
+        let hexString = (colors![indexPath.row] as? String)!
         
-        let cell = collectionView
-        .dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = UIColor.init(hexString: hexString as! String)    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        cell.backgroundColor = UIColor.init(hexString: hexString as NSString)    
         
         return cell
     }
-    
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -91,19 +93,28 @@ class OPColorPickerController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        var colors : NSArray?
-        let palettePath = Bundle.main.path(forResource: "colorPalette", ofType: "plist")
-        let plistArray = NSArray(contentsOfFile: palettePath!)
-        if let colorPalettePlistFile = plistArray{
+        var colorData: Data?
+        var colors: [AnyObject]?
+        let url = Bundle.main.url(forResource: "colorPalette", withExtension: "plist")!
+        
+        do {
+            colorData = try Data(contentsOf: url)
+        } catch _ as NSError {
             
-            colors = colorPalettePlistFile as! [String] as NSArray
+        }
+        do {
+            colors = try (PropertyListSerialization.propertyList(from: colorData!, options: [], format: nil) as? [AnyObject])
+        } catch _ as NSError {
+            
         }
         
-        let hexString = colors![indexPath.row] as! String
-        if delegate != nil{
+        let hexString = (colors![indexPath.row] as? String)!
+        
+        if delegate != nil {
             
             delegate?.didSelectColorHex(colorHex: hexString)
         }
+        self.dismiss(animated: true, completion: nil)
     }
 
 }
