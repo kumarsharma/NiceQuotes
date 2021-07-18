@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class FactPresenter: MVPresenter {
     weak var textArea: UILabel?
@@ -18,7 +19,8 @@ class FactPresenter: MVPresenter {
     var yPos: CGFloat = 94
     var selfWidth: CGFloat?
     var selfHeight: CGFloat?
-    
+    var frc: NSFetchedResultsController<Fact>?
+
     override init() {
         super.init()
     }
@@ -31,6 +33,7 @@ class FactPresenter: MVPresenter {
     func viewDidLoad() {
         
         let quote = sharedCoredataCoordinator.fetchQuote(atIndex: currentIndex!)
+        self.frc = sharedCoredataCoordinator.factFetchedResultController()
         currentIndex! = currentIndex!+1
         self.textArea?.text = quote.quoteText!+"\n\n-- \(quote.quoteBy ?? "")"
         selfWidth = self.controller?.view.bounds.size.width
@@ -128,14 +131,19 @@ class FactPresenter: MVPresenter {
     // private members
     private func nextQuote() -> Fact {
         currentIndex! = currentIndex!+1 
-        let quote = sharedCoredataCoordinator.fetchQuote(atIndex: currentIndex!)
-        return quote
+//        let quote = sharedCoredataCoordinator.fetchQuote(atIndex: currentIndex!)
+        let index = currentIndex! >= (self.frc?.fetchedObjects!.count)! ? 0 : currentIndex!
+        currentIndex! = index
+        
+        let quote = self.frc?.object(at: IndexPath(row: index, section: 0))
+        return quote!
     }
     private func prevQuote() -> Fact {
         if currentIndex!>0 {
             currentIndex! = currentIndex!-1
         }
-        let quote = sharedCoredataCoordinator.fetchQuote(atIndex: currentIndex!)
+        let index = currentIndex! >= (self.frc?.fetchedObjects!.count)! ? (self.frc?.fetchedObjects!.count)!-1 : currentIndex!
+        let quote = (self.frc?.object(at: IndexPath(row: index, section: 0)))!
         return quote
     }
 }
