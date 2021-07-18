@@ -20,13 +20,21 @@ class FactViewController: UIViewController {
     var playTimer: Timer?
     var selfWidth: CGFloat?
     var selfHeight: CGFloat?
+    var currentAudioFileName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Nice Quotes"
-        let barBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.organize, target: self, action: #selector(btnAction))
+        let barBtn = UIBarButtonItem.init(image: UIImage.init(named: "settings_icn"), style: .done, target: self, action: #selector(btnAction)) 
+            
+        let infoBtn = UIButton.init(type: .infoLight)
+        infoBtn.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
+        infoBtn.addTarget(self, action: #selector(infoBtnAction), for: .touchUpInside)
+        let barBtn2 = UIBarButtonItem.init(customView: infoBtn)
+        
         self.navigationItem.rightBarButtonItem = barBtn
-
+        self.navigationItem.leftBarButtonItem = barBtn2
+        self.currentAudioFileName = (defaultConfig?.audioFileName)!
         selfWidth = self.view.bounds.size.width
         selfHeight = self.view.bounds.size.height
         
@@ -44,6 +52,7 @@ class FactViewController: UIViewController {
         self.backgroundView?.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleBottomMargin]
         self.backgroundView?.contentMode = UIView.ContentMode.scaleAspectFill
         self.backgroundView?.clipsToBounds = true
+        self.backgroundView?.isHidden = true
  
         self.factTextView = UILabel(frame: CGRect(x: 5, y: yPos, width: selfWidth!-10, height: selfHeight!-CGFloat(yPos)))
         self.factTextView?.textAlignment = NSTextAlignment.center
@@ -82,14 +91,19 @@ class FactViewController: UIViewController {
         
         if (defaultConfig?.enableAudio)! {
             
-            let path = Bundle.main.path(forResource: "\((defaultConfig?.audioFileName)!)", ofType: "mp3")!
-            let url = URL(fileURLWithPath: path)
-            do {
+            if soundEffect == nil || !soundEffect!.isPlaying || self.currentAudioFileName != (defaultConfig?.audioFileName)! {
                 
-                soundEffect = try AVAudioPlayer(contentsOf: url)
-                soundEffect?.play()
-            } catch _ as NSError {
-                
+                self.currentAudioFileName = (defaultConfig?.audioFileName)!
+                let path = Bundle.main.path(forResource: "\((defaultConfig?.audioFileName)!)", ofType: "mp3")!
+                let url = URL(fileURLWithPath: path)
+                do {
+                    
+                    soundEffect = try AVAudioPlayer(contentsOf: url)
+                    soundEffect?.numberOfLoops = -1
+                    soundEffect?.play()
+                } catch _ as NSError {
+                    
+                }
             }
         } else {
             
@@ -98,18 +112,31 @@ class FactViewController: UIViewController {
         
         if (defaultConfig?.autoPlay)! {
             
-            self.playTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(didSwipeUp), userInfo: nil, repeats: true)
-            self.playTimer?.fire()
+            if self.playTimer == nil || !self.playTimer!.isValid {
+                
+                self.playTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(didSwipeUp), userInfo: nil, repeats: true)
+                self.playTimer?.fire()
+            }
         } else {
             
             self.playTimer?.invalidate()
         }
+        
+        self.factTextView?.textColor = UIColor.init(hexString: (defaultConfig?.textColorCode)! as NSString)
     }
     
     @objc func btnAction() {
         
         let settingsVc = SettingsTableViewController.init(style: UITableView.Style.grouped)
         self.navigationController?.pushViewController(settingsVc, animated: true)
+    }
+    
+    @objc func infoBtnAction() {
+        
+        let msg = "Developed with joy for you.\n\nYou can add custom quotes from settings.\n\nEnjoy quotes with background music.\n\nMusic source: www.bensound.com\n\nFeedback @ kumar.asom@gmail.com"
+        let alert = UIAlertController(title: "Nice Quotes", message: msg, preferredStyle: .alert);
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc private func didSwipeUp() {

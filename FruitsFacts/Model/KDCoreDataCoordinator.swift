@@ -187,8 +187,9 @@ class KDCoreDataCoordinator: NSObject {
         let quoteEntity = NSEntityDescription.entity(forEntityName: "Config", in: self.persistentContainer.viewContext)
         config = NSManagedObject(entity: quoteEntity!, insertInto: self.persistentContainer.viewContext) as? Config
         config.backgroundMode = "Color"
-        config.bgColorCode = "9bff38"
-        config.audioFileName = "sound1"
+        config.bgColorCode = "FFADD6"
+        config.textColorCode = "FFFFFF"
+        config.audioFileName = "Relaxing"
         return config
     }
     

@@ -15,8 +15,17 @@
 		CE23066026A3E00600588A39 /* OPColorPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23065F26A3E00600588A39 /* OPColorPickerDelegate.swift */; };
 		CE23066526A3ED7000588A39 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23066426A3ED7000588A39 /* Constants.swift */; };
 		CE23066A26A3FA3100588A39 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE23066926A3FA3100588A39 /* colorPalette.plist */; };
-		CE23067426A40F3100588A39 /* sound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23067226A40F3100588A39 /* sound2.mp3 */; };
-		CE23067526A40F3100588A39 /* sound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23067326A40F3100588A39 /* sound1.mp3 */; };
+		CE23068626A4341B00588A39 /* Acoustic_Breeze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23067C26A4341900588A39 /* Acoustic_Breeze.mp3 */; };
+		CE23068726A4341B00588A39 /* Piano_Moment.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23067D26A4341900588A39 /* Piano_Moment.mp3 */; };
+		CE23068826A4341B00588A39 /* Little_Idea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23067E26A4341A00588A39 /* Little_Idea.mp3 */; };
+		CE23068926A4341B00588A39 /* Love.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23067F26A4341A00588A39 /* Love.mp3 */; };
+		CE23068A26A4341B00588A39 /* Creative_Minds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23068026A4341A00588A39 /* Creative_Minds.mp3 */; };
+		CE23068B26A4341B00588A39 /* Relaxing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23068126A4341A00588A39 /* Relaxing.mp3 */; };
+		CE23068C26A4341B00588A39 /* Little_Planet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23068226A4341B00588A39 /* Little_Planet.mp3 */; };
+		CE23068D26A4341B00588A39 /* Adventure.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23068326A4341B00588A39 /* Adventure.mp3 */; };
+		CE23068E26A4341B00588A39 /* Sweet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23068426A4341B00588A39 /* Sweet.mp3 */; };
+		CE23068F26A4341B00588A39 /* Funny_Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23068526A4341B00588A39 /* Funny_Song.mp3 */; };
+		CE23069426A4392100588A39 /* settings_icn.png in Resources */ = {isa = PBXBuildFile; fileRef = CE23069326A4392100588A39 /* settings_icn.png */; };
 		CE461C3226528D330052DA33 /* Sample_Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE461C3126528D330052DA33 /* Sample_Quotes.txt */; };
 		CE5A65E9268A29FF007A8585 /* QuoteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A65E8268A29FF007A8585 /* QuoteListController.swift */; };
 		CE5A65F1268A2AA2007A8585 /* QuotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A65F0268A2AA2007A8585 /* QuotePresenter.swift */; };
@@ -66,8 +75,17 @@
 		CE23065F26A3E00600588A39 /* OPColorPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPColorPickerDelegate.swift; sourceTree = "<group>"; };
 		CE23066426A3ED7000588A39 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE23066926A3FA3100588A39 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
-		CE23067226A40F3100588A39 /* sound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound2.mp3; sourceTree = "<group>"; };
-		CE23067326A40F3100588A39 /* sound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound1.mp3; sourceTree = "<group>"; };
+		CE23067C26A4341900588A39 /* Acoustic_Breeze.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Acoustic_Breeze.mp3; sourceTree = "<group>"; };
+		CE23067D26A4341900588A39 /* Piano_Moment.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Piano_Moment.mp3; sourceTree = "<group>"; };
+		CE23067E26A4341A00588A39 /* Little_Idea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Little_Idea.mp3; sourceTree = "<group>"; };
+		CE23067F26A4341A00588A39 /* Love.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Love.mp3; sourceTree = "<group>"; };
+		CE23068026A4341A00588A39 /* Creative_Minds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Creative_Minds.mp3; sourceTree = "<group>"; };
+		CE23068126A4341A00588A39 /* Relaxing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Relaxing.mp3; sourceTree = "<group>"; };
+		CE23068226A4341B00588A39 /* Little_Planet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Little_Planet.mp3; sourceTree = "<group>"; };
+		CE23068326A4341B00588A39 /* Adventure.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Adventure.mp3; sourceTree = "<group>"; };
+		CE23068426A4341B00588A39 /* Sweet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sweet.mp3; sourceTree = "<group>"; };
+		CE23068526A4341B00588A39 /* Funny_Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Funny_Song.mp3; sourceTree = "<group>"; };
+		CE23069326A4392100588A39 /* settings_icn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icn.png; sourceTree = "<group>"; };
 		CE26AC962654ADD9004E0549 /* FruitsFacts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FruitsFacts.entitlements; sourceTree = "<group>"; };
 		CE461C3126528D330052DA33 /* Sample_Quotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample_Quotes.txt; sourceTree = "<group>"; };
 		CE5A65E8268A29FF007A8585 /* QuoteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListController.swift; sourceTree = "<group>"; };
@@ -135,8 +153,16 @@
 		CE23066E26A40C9F00588A39 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				CE23067326A40F3100588A39 /* sound1.mp3 */,
-				CE23067226A40F3100588A39 /* sound2.mp3 */,
+				CE23067C26A4341900588A39 /* Acoustic_Breeze.mp3 */,
+				CE23068326A4341B00588A39 /* Adventure.mp3 */,
+				CE23068026A4341A00588A39 /* Creative_Minds.mp3 */,
+				CE23068526A4341B00588A39 /* Funny_Song.mp3 */,
+				CE23067E26A4341A00588A39 /* Little_Idea.mp3 */,
+				CE23068226A4341B00588A39 /* Little_Planet.mp3 */,
+				CE23067F26A4341A00588A39 /* Love.mp3 */,
+				CE23067D26A4341900588A39 /* Piano_Moment.mp3 */,
+				CE23068126A4341A00588A39 /* Relaxing.mp3 */,
+				CE23068426A4341B00588A39 /* Sweet.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -148,6 +174,7 @@
 				CE6AA1DC26550A48000D86B1 /* Bg.png */,
 				CE461C3126528D330052DA33 /* Sample_Quotes.txt */,
 				CE23066926A3FA3100588A39 /* colorPalette.plist */,
+				CE23069326A4392100588A39 /* settings_icn.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -383,14 +410,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE23068C26A4341B00588A39 /* Little_Planet.mp3 in Resources */,
+				CE23068B26A4341B00588A39 /* Relaxing.mp3 in Resources */,
+				CE23068F26A4341B00588A39 /* Funny_Song.mp3 in Resources */,
 				CE6AA1DD26550A48000D86B1 /* Bg.png in Resources */,
 				CE76FD39264BE01C0092709A /* LaunchScreen.storyboard in Resources */,
-				CE23067526A40F3100588A39 /* sound1.mp3 in Resources */,
+				CE23068926A4341B00588A39 /* Love.mp3 in Resources */,
+				CE23068626A4341B00588A39 /* Acoustic_Breeze.mp3 in Resources */,
+				CE23068A26A4341B00588A39 /* Creative_Minds.mp3 in Resources */,
 				CE461C3226528D330052DA33 /* Sample_Quotes.txt in Resources */,
+				CE23068726A4341B00588A39 /* Piano_Moment.mp3 in Resources */,
+				CE23068826A4341B00588A39 /* Little_Idea.mp3 in Resources */,
 				CE76FD36264BE01C0092709A /* Assets.xcassets in Resources */,
+				CE23068D26A4341B00588A39 /* Adventure.mp3 in Resources */,
 				CE23066A26A3FA3100588A39 /* colorPalette.plist in Resources */,
 				CE76FD31264BE0190092709A /* Main.storyboard in Resources */,
-				CE23067426A40F3100588A39 /* sound2.mp3 in Resources */,
+				CE23069426A4392100588A39 /* settings_icn.png in Resources */,
+				CE23068E26A4341B00588A39 /* Sweet.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

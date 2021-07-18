@@ -29,7 +29,7 @@ class SettingsTableViewController: UITableViewController {
         case 0:
             return 2
         case 1:
-            return 5
+            return 4
         default:
             return 0
         }
@@ -46,29 +46,33 @@ class SettingsTableViewController: UITableViewController {
         if indexPath.section == 0 { 
             if indexPath.row == 0 { 
                 cell?.textLabel?.text = "Quotes"
+                cell?.accessoryType = .disclosureIndicator
             } else {
                 cell?.textLabel?.text = "Auto Play"
-                let autoPlaySw = UISwitch(frame: CGRect(x: (cell?.frame.size.width)!-20, y: 5, width: 100, height: (cell?.frame.size.height)!))
+                let autoPlaySw = UISwitch(frame: CGRect(x: (cell?.frame.size.width)!, y: 5, width: 100, height: (cell?.frame.size.height)!))
                 autoPlaySw.addTarget(self, action: #selector(didChangeAutoPlaySwitchValue), for: .valueChanged)
                 autoPlaySw.isOn = (defaultConfig?.autoPlay)!
                 cell?.contentView.addSubview(autoPlaySw)
+                cell?.accessoryType = .none
             }
         } else { 
-            if indexPath.row == 0 { 
-                cell?.textLabel?.text = "Background: " + (defaultConfig?.backgroundMode)!
-            } else if indexPath.row == 1 {
+            if indexPath.row == 0 {
                 
                 cell?.textLabel?.text = "Background Color: " + (defaultConfig?.bgColorCode)!
+                cell?.accessoryType = .none
+            } else if indexPath.row == 1 {
+                cell?.textLabel?.text = "Text Color: " + (defaultConfig?.textColorCode)!
+                cell?.accessoryType = .none
             } else if indexPath.row == 2 {
-                cell?.textLabel?.text = "Background Image"
-            } else if indexPath.row == 3 {
                 cell?.textLabel?.text = "Audio"
-                let audioSw = UISwitch(frame: CGRect(x: (cell?.frame.size.width)!-20, y: 5, width: 100, height: (cell?.frame.size.height)!))
+                let audioSw = UISwitch(frame: CGRect(x: (cell?.frame.size.width)!, y: 5, width: 100, height: (cell?.frame.size.height)!))
                 audioSw.addTarget(self, action: #selector(didChangeAudioSwitchValue), for: .valueChanged)
                 audioSw.isOn = (defaultConfig?.enableAudio)!
                 cell?.contentView.addSubview(audioSw)
-            } else if indexPath.row == 4 {
-                cell?.textLabel?.text = "Audio File"
+                cell?.accessoryType = .none
+            } else if indexPath.row == 3 {
+                cell?.textLabel?.text = "Audio File: " + (defaultConfig?.audioFileName)!
+                cell?.accessoryType = .none
             }
         }
 
@@ -95,7 +99,7 @@ class SettingsTableViewController: UITableViewController {
             
             let quoteVc: QuoteListController = QuoteListController()
             self.navigationController?.pushViewController(quoteVc, animated: true)
-        } else if indexPath.section == 1 && indexPath.row == 0 {
+        } else if indexPath.section == 1 && indexPath.row == 6 {
             
             let pickerVc = KDPickerController(style: UITableView.Style.grouped)
             pickerVc.delegate=self
@@ -118,7 +122,7 @@ class SettingsTableViewController: UITableViewController {
             }
             
             self.present(navVc, animated: true, completion: nil)
-        } else if indexPath.section == 1 && indexPath.row == 1 {
+        } else if indexPath.section == 1 && (indexPath.row == 0 || indexPath.row == 1) {
             
             let layout = UICollectionViewFlowLayout()
             layout.itemSize = CGSize(width: 100, height: 100)
@@ -140,6 +144,28 @@ class SettingsTableViewController: UITableViewController {
             }*/
             
             self.present(nav, animated: true, completion: nil)
+        } else if indexPath.section == 1 && indexPath.row == 3 {
+            
+            let pickerVc = KDPickerController(style: UITableView.Style.grouped)
+            pickerVc.delegate=self
+            pickerVc.itemList=NSArray(array: ["Little_Planet","Love", "Sweet", "Adventure", "Relaxing","Creative_Minds","Funny_Song", "Little_Idea", "Acoustic_Breeze", "Piano_Moment"])
+            pickerVc.selectedItem = (defaultConfig?.audioFileName)!
+            let navVc = UINavigationController(rootViewController: pickerVc)
+            navVc.navigationBar.barStyle = .black
+            
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                
+                navVc.modalPresentationStyle = .popover
+                let viewPresentationController = navVc.popoverPresentationController
+                if let presentationController = viewPresentationController {
+                    
+                    presentationController.sourceView = cell
+                    presentationController.permittedArrowDirections=UIPopoverArrowDirection.down
+                    navVc.preferredContentSize = CGSize(width: 300, height: 450)
+                }
+            }
+            
+            self.present(navVc, animated: true, completion: nil)
         }
     }
 }
@@ -154,6 +180,11 @@ extension SettingsTableViewController: KDPickerDelegate {
             cell?.textLabel?.text = "Background: " + item
             defaultConfig?.backgroundMode = item
             sharedCoredataCoordinator.saveContext()
+        } else if self.selectedIndexPath?.section == 1 && self.selectedIndexPath?.row == 3 {
+            
+            cell?.textLabel?.text = "Audio File: " + item
+            defaultConfig?.audioFileName = item
+            sharedCoredataCoordinator.saveContext()
         }
     }
 }
@@ -163,11 +194,16 @@ extension SettingsTableViewController: OPColorPickerDelegate {
     func didSelectColorHex(colorHex: String) {
         
         let cell = tableView.cellForRow(at: self.selectedIndexPath!)
-        if self.selectedIndexPath?.section == 1 && self.selectedIndexPath?.row == 1 {
+        if self.selectedIndexPath?.section == 1 && self.selectedIndexPath?.row == 0 {
             
             cell?.textLabel?.text = "Background Color: " + colorHex
             defaultConfig?.bgColorCode = colorHex
             sharedCoredataCoordinator.saveContext()
-        }
+        } else if self.selectedIndexPath?.section == 1 && self.selectedIndexPath?.row == 1 {
+            
+            cell?.textLabel?.text = "Text Color: " + colorHex
+            defaultConfig?.textColorCode = colorHex
+            sharedCoredataCoordinator.saveContext()
+        } 
     }
 }

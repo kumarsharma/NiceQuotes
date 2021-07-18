@@ -21,7 +21,7 @@ extension Config {
     @NSManaged public var bgImageFileName: String?
     @NSManaged public var enableAudio: Bool
     @NSManaged public var audioFileName: String?
-
+    @NSManaged public var textColorCode: String?
 }
 
 extension Config: Identifiable {
