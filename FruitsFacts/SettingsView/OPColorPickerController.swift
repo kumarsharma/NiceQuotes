@@ -18,10 +18,9 @@ class OPColorPickerController: UICollectionViewController {
         super.viewDidLoad()
 
         self.title = "Select an Item"
-        let bar1 = UIBarButtonItem(image: UIImage(named: "closeIcn"), style: .done, target: self, action: #selector(cancelBtnAction))
+        let bar1 = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBtnAction))
+        let bar2 = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBtnAction));
         self.navigationItem.leftBarButtonItem = bar1
-        
-        let bar2 = UIBarButtonItem(image: UIImage(named: "doneIcn"), style: .done, target: self, action: #selector(doneBtnAction))
         self.navigationItem.rightBarButtonItem = bar2
         
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)

@@ -35,7 +35,9 @@ class FactPresenter: MVPresenter {
         let quote = sharedCoredataCoordinator.fetchQuote(atIndex: currentIndex!)
         self.frc = sharedCoredataCoordinator.factFetchedResultController()
         currentIndex! = currentIndex!+1
-        self.textArea?.text = quote.quoteText!+"\n\n-- \(quote.quoteBy ?? "")"
+        let lowStr = quote.quoteText!.lowercased().firstUppercased
+        self.textArea?.text = lowStr+"\n\n-- \(quote.quoteBy ?? "")"
+        self.textArea?.font = UIFont(name: (defaultConfig?.getQuoteFontName())!, size: 33)
         selfWidth = self.controller?.view.bounds.size.width
         selfHeight = self.controller?.view.bounds.size.height
         self.currentAudioFileName = (defaultConfig?.audioFileName)!
@@ -53,7 +55,8 @@ class FactPresenter: MVPresenter {
           
             self.textArea?.frame = CGRect(x: 5, y: self.yPos, width: self.selfWidth!-10, height: self.selfHeight!-CGFloat(self.yPos))  
             let quote = self.nextQuote()
-            self.textArea?.text = quote.quoteText!+"\n\n-- \(quote.quoteBy ?? "")"
+            let lowStr = quote.quoteText!.lowercased().firstUppercased
+            self.textArea?.text = lowStr+"\n\n- \(quote.quoteBy ?? "")"
         })        
     }
     
@@ -70,21 +73,26 @@ class FactPresenter: MVPresenter {
             self.textArea?.frame = CGRect(x: 5, y: self.yPos, width: self.selfWidth!-10, height: self.selfHeight!-CGFloat(self.yPos))
             
             let quote = self.prevQuote()
-            self.textArea?.text = quote.quoteText!+"\n\n-- \(quote.quoteBy ?? "")"
+            let lowStr = quote.quoteText!.lowercased().firstUppercased   
+            self.textArea?.text = lowStr+"\n\n- \(quote.quoteBy ?? "")"
         })
     }
     
     func nextQuoteText() -> String {
         let quote = self.nextQuote()
-        return quote.quoteText!
+        let lowStr = quote.quoteText!.lowercased().capitalizeFirst
+        return lowStr
     }
     
     func previousQuoteText() -> String {
         let quote = self.prevQuote()
-        return quote.quoteText!
+        let lowStr = quote.quoteText!.lowercased().capitalizeFirst
+        return lowStr
     }
     
     func needChangeDisplay() {
+        
+        self.textArea?.font = UIFont(name: (defaultConfig?.getQuoteFontName())!, size: 33)
         
         if (defaultConfig?.backgroundMode?.elementsEqual("Color")) != nil {
             
@@ -146,4 +154,18 @@ class FactPresenter: MVPresenter {
         let quote = (self.frc?.object(at: IndexPath(row: index, section: 0)))!
         return quote
     }
+}
+
+extension String {
+    var capitalizeFirst: String {
+        if self.isEmpty {
+            return self
+        }
+        return String(self[self.startIndex]).capitalized + String(self.dropFirst())
+    }
+}
+
+extension StringProtocol {
+    var firstUppercased: String { prefix(1).uppercased() + dropFirst() }
+    var firstCapitalized: String { prefix(1).capitalized + dropFirst() }
 }

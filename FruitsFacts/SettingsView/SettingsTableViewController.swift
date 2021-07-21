@@ -20,7 +20,7 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,7 +29,9 @@ class SettingsTableViewController: UITableViewController {
         case 0:
             return 2
         case 1:
-            return 4
+            return 3
+        case 2:
+            return 2
         default:
             return 0
         }
@@ -55,7 +57,7 @@ class SettingsTableViewController: UITableViewController {
                 cell?.contentView.addSubview(autoPlaySw)
                 cell?.accessoryType = .none
             }
-        } else { 
+        } else if indexPath.section == 1 { 
             if indexPath.row == 0 {
                 
                 cell?.textLabel?.text = "Background Color: " + (defaultConfig?.bgColorCode)!
@@ -64,13 +66,19 @@ class SettingsTableViewController: UITableViewController {
                 cell?.textLabel?.text = "Text Color: " + (defaultConfig?.textColorCode)!
                 cell?.accessoryType = .none
             } else if indexPath.row == 2 {
+                cell?.textLabel?.text = "Text Font: " + (defaultConfig?.getQuoteFontName())!
+                cell?.accessoryType = .none
+            } 
+        } else if indexPath.section == 2 {
+            
+            if indexPath.row == 0 {
                 cell?.textLabel?.text = "Audio"
                 let audioSw = UISwitch(frame: CGRect(x: (cell?.frame.size.width)!, y: 5, width: 100, height: (cell?.frame.size.height)!))
                 audioSw.addTarget(self, action: #selector(didChangeAudioSwitchValue), for: .valueChanged)
                 audioSw.isOn = (defaultConfig?.enableAudio)!
                 cell?.contentView.addSubview(audioSw)
                 cell?.accessoryType = .none
-            } else if indexPath.row == 3 {
+            } else if indexPath.row == 1 {
                 cell?.textLabel?.text = "Audio File: " + (defaultConfig?.audioFileName)!
                 cell?.accessoryType = .none
             }
@@ -93,67 +101,43 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRow(at: indexPath)
         self.selectedIndexPath = indexPath
         if indexPath.section == 0 && indexPath.row == 0 {
             
             let quoteVc: QuoteListController = QuoteListController()
             self.navigationController?.pushViewController(quoteVc, animated: true)
-        } else if indexPath.section == 1 && indexPath.row == 6 {
+        } else if indexPath.section == 1 {
             
-            let pickerVc = KDPickerController(style: UITableView.Style.grouped)
-            pickerVc.delegate=self
-            pickerVc.itemList = NSArray(array: ["Image", "Color"])
-            pickerVc.pickerType = .text
-            pickerVc.selectedItem = defaultConfig?.backgroundMode
-            let navVc = UINavigationController(rootViewController: pickerVc)
-            navVc.navigationBar.barStyle = .black
-            
-            if UIDevice.current.userInterfaceIdiom == .pad {
+            if indexPath.row == 0 || indexPath.row == 1 { 
                 
-                navVc.modalPresentationStyle = .popover
-                let viewPresentationController = navVc.popoverPresentationController
-                if let presentationController = viewPresentationController {
-                    
-                    presentationController.sourceView = cell
-                    presentationController.permittedArrowDirections=UIPopoverArrowDirection.down
-                }
-                navVc.preferredContentSize = CGSize(width: 300, height: 450)
+                let layout = UICollectionViewFlowLayout()
+                layout.itemSize = CGSize(width: 100, height: 100)
+                layout.scrollDirection = .vertical
+                let colorVc = OPColorPickerController(collectionViewLayout: layout)
+                colorVc.delegate=self
+                let nav = UINavigationController(rootViewController: colorVc)
+                nav.navigationBar.barStyle = .black
+                self.present(nav, animated: true, completion: nil)
+            } else if indexPath.row == 2 {
+                
+                let pickerVc = KDPickerController(style: UITableView.Style.grouped)
+                pickerVc.delegate=self
+                pickerVc.pickerType = .font
+                pickerVc.itemList=UIFont.familyNames as NSArray
+                pickerVc.selectedItem = (defaultConfig?.getQuoteFontName())!
+                let navVc = UINavigationController(rootViewController: pickerVc)
+                navVc.navigationBar.barStyle = .black
+                self.present(navVc, animated: true, completion: nil)
             }
-            
-            self.present(navVc, animated: true, completion: nil)
-        } else if indexPath.section == 1 && (indexPath.row == 0 || indexPath.row == 1) {
-            
-            let layout = UICollectionViewFlowLayout()
-            layout.itemSize = CGSize(width: 100, height: 100)
-            layout.scrollDirection = .vertical
-            let colorVc = OPColorPickerController(collectionViewLayout: layout)
-            colorVc.delegate=self
-            let nav = UINavigationController(rootViewController: colorVc)
-            nav.navigationBar.barStyle = .black
-            
-            self.present(nav, animated: true, completion: nil)
-        } else if indexPath.section == 1 && indexPath.row == 3 {
+        } else if indexPath.section == 2 && indexPath.row == 1 {
             
             let pickerVc = KDPickerController(style: UITableView.Style.grouped)
             pickerVc.delegate=self
-            pickerVc.itemList=NSArray(array: ["Little_Planet","Love", "Sweet", "Adventure", "Relaxing","Creative_Minds","Funny_Song", "Little_Idea", "Acoustic_Breeze", "Piano_Moment"])
+            pickerVc.pickerType = .sound
+            pickerVc.itemList=NSArray(array: ["Little_Planet","Love","Sweet", "Adventure","Relaxing","Creative_Minds","Funny_Song","Little_Idea","Acoustic_Breeze","Piano_Moment"])
             pickerVc.selectedItem = (defaultConfig?.audioFileName)!
             let navVc = UINavigationController(rootViewController: pickerVc)
             navVc.navigationBar.barStyle = .black
-            
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                
-                navVc.modalPresentationStyle = .popover
-                let viewPresentationController = navVc.popoverPresentationController
-                if let presentationController = viewPresentationController {
-                    
-                    presentationController.sourceView = cell
-                    presentationController.permittedArrowDirections=UIPopoverArrowDirection.down
-                    navVc.preferredContentSize = CGSize(width: 300, height: 450)
-                }
-            }
-            
             self.present(navVc, animated: true, completion: nil)
         }
     }
@@ -174,7 +158,12 @@ extension SettingsTableViewController: KDPickerDelegate {
             cell?.textLabel?.text = "Audio File: " + item
             defaultConfig?.audioFileName = item
             sharedCoredataCoordinator.saveContext()
-        }
+        } else if self.selectedIndexPath?.section == 1 && self.selectedIndexPath?.row == 2 {
+            
+            cell?.textLabel?.text = "Text Font: " + item
+            defaultConfig?.quoteFontName = item
+            sharedCoredataCoordinator.saveContext()
+        } 
     }
 }
 
@@ -193,6 +182,6 @@ extension SettingsTableViewController: OPColorPickerDelegate {
             cell?.textLabel?.text = "Text Color: " + colorHex
             defaultConfig?.textColorCode = colorHex
             sharedCoredataCoordinator.saveContext()
-        } 
+        }
     }
 }

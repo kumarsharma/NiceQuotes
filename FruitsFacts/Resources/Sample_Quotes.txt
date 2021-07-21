@@ -1,4 +1,4 @@
-﻿{
+{
     "Quotes": [
         {
             "Quote": "The Best Way To Get Started Is To Quit Talking And Begin Doing.",
@@ -199,6 +199,34 @@
         {
             "Quote": "Leaders Concentrate Single-Mindedly On One Thing– The Most Important Thing, And They Stay At It Until It’s Complete.",
             "By": "Brian Tracy"
+        },
+        {
+            "Quote": "Be thankful for what you have; you'll end up having more. If you concentrate on what you don't have, you will never, ever have enough.",
+            "By": "Oprah Winfrey"
+        },
+        {
+            "Quote": "If you don't like the road you're walking, start paving another one.",
+            "By": "Dolly Parton"
+        },
+        {
+            "Quote": "The most beautiful things in the world cannot be seen or even touched. They must be felt with the heart.",
+            "By": "Helen Keller"
+        },
+        {
+            "Quote": "Lead from the heart, not the head.",
+            "By": "Princess Diana"
+        },
+        {
+            "Quote": "Wherever life plants you, bloom with grace.",
+            "By": "Unknown"
+        },
+        {
+            "Quote": "Don't give it five minutes if you're not going to give it five years.",
+            "By": "Meghan Markle​"
+        },
+        {
+            "Quote": "Every day is not a success. Every year is not a success. You have to celebrate the good.",
+            "By": "Reese Witherspoon"
         }
     ]
 }

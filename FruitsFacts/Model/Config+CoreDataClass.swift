@@ -12,4 +12,13 @@ import CoreData
 @objc(Config)
 public class Config: NSManagedObject {
 
+    func getQuoteFontName() -> String {
+        
+        if self.quoteFontName == nil {
+            
+            return "American Typewriter"
+        }
+        
+        return self.quoteFontName!
+    }
 }

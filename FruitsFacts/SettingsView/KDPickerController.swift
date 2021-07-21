@@ -11,7 +11,7 @@ import AVFoundation
 
 protocol KDPickerDelegate {
     
-    func didSelectItem(item:String)
+    func didSelectItem(item: String)
 }
 
 class KDPickerController: UITableViewController {
@@ -28,8 +28,8 @@ class KDPickerController: UITableViewController {
         super.viewDidLoad()
 
         self.title="Select an Item"
-        let bar1 = UIBarButtonItem(image: UIImage(named: "closeIcn"), style: .done, target: self, action: #selector(cancelBtnAction))
-        let bar2 = UIBarButtonItem(image: UIImage(named: "doneIcn"), style: .done, target: self, action: #selector(doneBtnAction))
+        let bar1 = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBtnAction))
+        let bar2 = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBtnAction));
         self.navigationItem.leftBarButtonItem = bar1
         self.navigationItem.rightBarButtonItem = bar2
         
@@ -89,6 +89,11 @@ class KDPickerController: UITableViewController {
         let item = self.itemList?.object(at: indexPath.row) as? String
         cell.textLabel?.text = item
         
+        if self.pickerType == .font {
+            
+            cell.textLabel?.font = UIFont(name: item!, size: 17)
+        }
+        
         if selectedItem != nil {
             
             if selectedItem == item {
@@ -109,7 +114,7 @@ class KDPickerController: UITableViewController {
         
         if self.pickerType == PickerType.sound {
             
-            let path = Bundle.main.path(forResource: "\(item!)", ofType: "m4r")!
+            let path = Bundle.main.path(forResource: "\(item!)", ofType: "mp3")!
             let url = URL(fileURLWithPath: path)
             do {
                 
@@ -118,17 +123,18 @@ class KDPickerController: UITableViewController {
             } catch {
                 
             }
+        } else {
+            
+            if self.delegate != nil {
+                
+                self.delegate?.didSelectItem(item: self.selectedItem!)
+            }
+            self.dismiss(animated: true, completion: nil)
         }
         
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = UITableViewCell.AccessoryType.checkmark
         currentCell?.accessoryType = UITableViewCell.AccessoryType.none
         currentCell = cell
-        
-        if self.delegate != nil {
-            
-            self.delegate?.didSelectItem(item: self.selectedItem!)
-        }
-        self.dismiss(animated: true, completion: nil)
     }
 }

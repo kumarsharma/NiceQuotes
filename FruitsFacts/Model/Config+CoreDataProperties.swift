@@ -22,6 +22,7 @@ extension Config {
     @NSManaged public var enableAudio: Bool
     @NSManaged public var audioFileName: String?
     @NSManaged public var textColorCode: String?
+    @NSManaged public var quoteFontName: String?
 }
 
 extension Config: Identifiable {

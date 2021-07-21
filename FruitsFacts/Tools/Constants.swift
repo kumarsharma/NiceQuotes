@@ -12,4 +12,5 @@ enum PickerType: Int {
     case text = 1
     case sound = 2
     case color = 3
+    case font = 4
 }
