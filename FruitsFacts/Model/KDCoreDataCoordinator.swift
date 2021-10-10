@@ -191,6 +191,7 @@ class KDCoreDataCoordinator: NSObject {
         config.textColorCode = "FFFFFF"
         config.audioFileName = "Creative_Minds"
         config.quoteFontName = "American Typewriter"
+        config.fontSize = 33
         return config
     }
     

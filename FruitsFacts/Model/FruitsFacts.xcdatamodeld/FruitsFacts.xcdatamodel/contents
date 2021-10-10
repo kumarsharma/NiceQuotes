@@ -7,6 +7,7 @@
         <attribute name="bgColorCode" optional="YES" attributeType="String"/>
         <attribute name="bgImageFileName" optional="YES" attributeType="String"/>
         <attribute name="enableAudio" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="fontSize" optional="YES" attributeType="Float" defaultValueString="33" usesScalarValueType="YES"/>
         <attribute name="quoteFontName" optional="YES" transient="YES" attributeType="String"/>
         <attribute name="textColorCode" optional="YES" attributeType="String"/>
     </entity>
@@ -20,7 +21,7 @@
         <attribute name="reference" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Config" positionX="-63" positionY="36" width="128" height="149"/>
+        <element name="Config" positionX="-63" positionY="36" width="128" height="164"/>
         <element name="Fact" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>
 </model>

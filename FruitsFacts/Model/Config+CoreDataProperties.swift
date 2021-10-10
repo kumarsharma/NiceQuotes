@@ -23,6 +23,7 @@ extension Config {
     @NSManaged public var audioFileName: String?
     @NSManaged public var textColorCode: String?
     @NSManaged public var quoteFontName: String?
+    @NSManaged public var fontSize: Float
 }
 
 extension Config: Identifiable {

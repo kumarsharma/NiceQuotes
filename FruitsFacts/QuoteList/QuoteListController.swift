@@ -20,7 +20,8 @@ class QuoteListController: UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self.presenter
         let bar = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addBtnAction))
-        self.navigationItem.rightBarButtonItem = bar
+        self.navigationItem.rightBarButtonItem = bar        
+        
     }
     
     @objc func addBtnAction() {

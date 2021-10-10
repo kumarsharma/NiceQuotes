@@ -33,7 +33,7 @@ class FactViewController: UIViewController {
         
         self.factTextView = UILabel(frame: CGRect(x: 5, y: yPos, width: selfWidth!-10, height: selfHeight!-CGFloat(yPos)))
         self.factTextView?.textAlignment = NSTextAlignment.center
-        self.factTextView?.font = UIFont.boldSystemFont(ofSize: 33)
+        self.factTextView?.font = UIFont.boldSystemFont(ofSize: 66)
         self.factTextView?.numberOfLines = 50
         self.factTextView?.autoresizingMask = [.flexibleHeight, .flexibleWidth, .flexibleTopMargin, .flexibleBottomMargin]
         

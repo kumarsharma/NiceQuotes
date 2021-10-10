@@ -92,7 +92,7 @@ class FactPresenter: MVPresenter {
     
     func needChangeDisplay() {
         
-        self.textArea?.font = UIFont(name: (defaultConfig?.getQuoteFontName())!, size: 33)
+        self.textArea?.font = UIFont(name: (defaultConfig?.getQuoteFontName())!, size: CGFloat(defaultConfig!.fontSize))
         
         if (defaultConfig?.backgroundMode?.elementsEqual("Color")) != nil {
             
