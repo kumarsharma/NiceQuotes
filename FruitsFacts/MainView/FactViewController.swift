@@ -20,13 +20,16 @@ class FactViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Nice Quotes"
         let barBtn = UIBarButtonItem.init(image: UIImage.init(named: "settings_icn"), style: .done, target: self, action: #selector(btnAction)) 
+        let shareBtn = UIBarButtonItem.init(barButtonSystemItem: .action, target: self, action: #selector(shareBtnAction(sender:)))
+        
+        barBtn.tintColor = .cyan
             
         let infoBtn = UIButton.init(type: .infoLight)
         infoBtn.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
         infoBtn.addTarget(self, action: #selector(infoBtnAction), for: .touchUpInside)
         let barBtn2 = UIBarButtonItem.init(customView: infoBtn)
         
-        self.navigationItem.rightBarButtonItem = barBtn
+        self.navigationItem.rightBarButtonItems = [barBtn, shareBtn]
         self.navigationItem.leftBarButtonItem = barBtn2
         selfWidth = self.view.bounds.size.width
         selfHeight = self.view.bounds.size.height
@@ -57,6 +60,22 @@ class FactViewController: UIViewController {
         
         super.viewDidAppear(animated)
         self.presenter?.needChangeDisplay()
+    }
+    
+    @objc func shareBtnAction(sender: UIBarButtonItem) {
+        
+        let renderer = UIGraphicsImageRenderer(size: (self.factTextView?.bounds.size)!)
+        let image = renderer.image { _ in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        let items = [image]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            
+            ac.popoverPresentationController?.barButtonItem = sender
+        }
+        self.present(ac, animated: true, completion: nil)
     }
     
     @objc func btnAction() {
