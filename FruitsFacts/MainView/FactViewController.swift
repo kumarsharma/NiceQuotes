@@ -39,6 +39,7 @@ class FactViewController: UIViewController {
         self.factTextView?.font = UIFont.boldSystemFont(ofSize: CGFloat(defaultConfig!.fontSize))
         self.factTextView?.numberOfLines = 50
         self.factTextView?.autoresizingMask = [.flexibleHeight, .flexibleWidth, .flexibleTopMargin, .flexibleBottomMargin]
+        self.factTextView?.adjustsFontSizeToFitWidth = true
         
         self.view.addSubview(self.factTextView!)
         

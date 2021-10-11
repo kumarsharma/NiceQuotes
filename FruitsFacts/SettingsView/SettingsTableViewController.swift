@@ -94,7 +94,14 @@ class SettingsTableViewController: UITableViewController {
                 let slider = UISlider(frame: CGRect(x: 140, y: 0, width: (cell?.frame.size.width)!-100, height: (cell?.frame.size.height)!))
                 slider.addTarget(self, action: #selector(sliderValueDidChange(sender:)), for: .valueChanged)
                 slider.minimumValue = 22
-                slider.maximumValue = 44
+                
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    
+                    slider.maximumValue = 88
+                } else {
+                    
+                    slider.maximumValue = 44
+                }
                 slider.tintColor = .green
                 slider.isContinuous = true
                 slider.value = defaultConfig!.fontSize
