@@ -217,5 +217,11 @@
           <string>3qcr597p9d.skadnetwork</string>
         </dict>
       </array>
+      <key>NSAppTransportSecurity</key>
+          <dict>
+              <!--Not a recommended way, there are better solutions available-->
+              <key>NSAllowsArbitraryLoads</key>
+              <true/>
+          </dict>
 </dict>
 </plist>

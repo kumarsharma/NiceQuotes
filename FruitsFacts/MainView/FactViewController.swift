@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMobileAds
 
-class FactViewController: UIViewController, GADBannerViewDelegate {
+class FactViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate {
 
     var factTextView: UILabel?
     var presenter: FactPresenter?
@@ -17,6 +17,7 @@ class FactViewController: UIViewController, GADBannerViewDelegate {
     var selfWidth: CGFloat?
     var selfHeight: CGFloat?
     var bannerView: GADBannerView!
+    var interstitial: GADInterstitialAd?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +92,36 @@ class FactViewController: UIViewController, GADBannerViewDelegate {
                               multiplier: 1,
                               constant: 0)
           ])
-       }
+    }
+    
+    private func createAndLoadInterstitial() {
+        
+        let request = GADRequest()
+        
+        var adId = ""
+        #if DEBUG
+            adId = "ca-app-pub-3940256099942544/4411468910"
+        #else
+            adId = "ca-app-pub-1232392292595179/2629069821"
+        #endif
+        
+        GADInterstitialAd.load(withAdUnitID:adId,
+                                        request: request,
+                              completionHandler: { [self] ad, error in
+                                if let error = error {
+                                  print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                                  return
+                                }
+                                interstitial = ad
+                                interstitial?.fullScreenContentDelegate = self
+                                if interstitial != nil {
+                                    interstitial?.present(fromRootViewController: self)
+                                  } else {
+                                    print("Ad wasn't ready")
+                                  }
+                              }
+            )
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -117,6 +147,11 @@ class FactViewController: UIViewController, GADBannerViewDelegate {
     
     @objc func btnAction() {
         
+        showSettingsView()
+    }
+    
+    func showSettingsView() {
+        
         let settingsVc = SettingsTableViewController.init(style: UITableView.Style.grouped)
         self.navigationController?.pushViewController(settingsVc, animated: true)
         /*
@@ -141,6 +176,7 @@ class FactViewController: UIViewController, GADBannerViewDelegate {
     
     @objc private func didSwipeUp() {
         
+        createAndLoadInterstitial()
         self.presenter?.didSwipeUp()        
     }
     
@@ -150,26 +186,41 @@ class FactViewController: UIViewController, GADBannerViewDelegate {
     }
     
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("bannerViewDidReceiveAd")
+      
     }
 
     func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+      
     }
 
     func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-      print("bannerViewDidRecordImpression")
+      
     }
 
     func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillPresentScreen")
+      
     }
 
     func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillDIsmissScreen")
+      
     }
 
     func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewDidDismissScreen")
+      
     }
+    
+    /// Tells the delegate that the ad failed to present full screen content.
+      func ad(_ adv: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        
+      }
+
+      /// Tells the delegate that the ad presented full screen content.
+      func adDidPresentFullScreenContent(_ adv: GADFullScreenPresentingAd) {
+                
+      }
+
+      /// Tells the delegate that the ad dismissed full screen content.
+      func adDidDismissFullScreenContent(_ adv: GADFullScreenPresentingAd) {
+        
+      }
 }
