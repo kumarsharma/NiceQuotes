@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -45,6 +45,13 @@
 		CE76FD77264C04700092709A /* FactPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD76264C04700092709A /* FactPresenter.swift */; };
 		CE76FD7E264C04D00092709A /* ViewUpdateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD7C264C04D00092709A /* ViewUpdateProtocol.swift */; };
 		CE76FD7F264C04D00092709A /* MVPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD7D264C04D00092709A /* MVPresenter.swift */; };
+		CE9F5ACB2713F9FA003575E5 /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9F5AC52713F9F5003575E5 /* GoogleUtilities.xcframework */; };
+		CE9F5ACC2713F9FA003575E5 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9F5AC62713F9F5003575E5 /* GoogleAppMeasurement.xcframework */; };
+		CE9F5ACD2713F9FA003575E5 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9F5AC72713F9F9003575E5 /* GoogleMobileAds.xcframework */; };
+		CE9F5ACE2713F9FA003575E5 /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9F5AC82713F9F9003575E5 /* nanopb.xcframework */; };
+		CE9F5ACF2713F9FA003575E5 /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9F5AC92713F9F9003575E5 /* PromisesObjC.xcframework */; };
+		CE9F5AD02713F9FA003575E5 /* UserMessagingPlatform.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9F5ACA2713F9FA003575E5 /* UserMessagingPlatform.xcframework */; };
+		CE9F5AD82713FB08003575E5 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9F5AD72713FB07003575E5 /* JavaScriptCore.framework */; };
 		CEB343AB264C0FF500EABE73 /* KDCoreDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB343AA264C0FF500EABE73 /* KDCoreDataCoordinator.swift */; };
 		CEBE14FF2673B10100DCC931 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE14FE2673B10100DCC931 /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -112,6 +119,13 @@
 		CE76FD76264C04700092709A /* FactPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactPresenter.swift; sourceTree = "<group>"; };
 		CE76FD7C264C04D00092709A /* ViewUpdateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUpdateProtocol.swift; sourceTree = "<group>"; };
 		CE76FD7D264C04D00092709A /* MVPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVPresenter.swift; sourceTree = "<group>"; };
+		CE9F5AC52713F9F5003575E5 /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleUtilities.xcframework; sourceTree = "<group>"; };
+		CE9F5AC62713F9F5003575E5 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
+		CE9F5AC72713F9F9003575E5 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleMobileAds.xcframework; sourceTree = "<group>"; };
+		CE9F5AC82713F9F9003575E5 /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = nanopb.xcframework; sourceTree = "<group>"; };
+		CE9F5AC92713F9F9003575E5 /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = PromisesObjC.xcframework; sourceTree = "<group>"; };
+		CE9F5ACA2713F9FA003575E5 /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = UserMessagingPlatform.xcframework; sourceTree = "<group>"; };
+		CE9F5AD72713FB07003575E5 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		CEB343AA264C0FF500EABE73 /* KDCoreDataCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCoreDataCoordinator.swift; sourceTree = "<group>"; };
 		CEBE14FE2673B10100DCC931 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +135,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9F5AD82713FB08003575E5 /* JavaScriptCore.framework in Frameworks */,
+				CE9F5ACB2713F9FA003575E5 /* GoogleUtilities.xcframework in Frameworks */,
+				CE9F5ACE2713F9FA003575E5 /* nanopb.xcframework in Frameworks */,
+				CE9F5ACC2713F9FA003575E5 /* GoogleAppMeasurement.xcframework in Frameworks */,
+				CE9F5ACD2713F9FA003575E5 /* GoogleMobileAds.xcframework in Frameworks */,
+				CE9F5AD02713F9FA003575E5 /* UserMessagingPlatform.xcframework in Frameworks */,
+				CE9F5ACF2713F9FA003575E5 /* PromisesObjC.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +216,7 @@
 				CE76FD42264BE01C0092709A /* FruitsFactsTests */,
 				CE76FD4D264BE01C0092709A /* FruitsFactsUITests */,
 				CE76FD27264BE0190092709A /* Products */,
+				CE9F5AB12713F863003575E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -294,6 +316,28 @@
 				CE76FD37264BE01C0092709A /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CE9F5AB12713F863003575E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F5AD72713FB07003575E5 /* JavaScriptCore.framework */,
+				CE9F5AC42713F9BB003575E5 /* GoogleAdMob */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE9F5AC42713F9BB003575E5 /* GoogleAdMob */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F5AC62713F9F5003575E5 /* GoogleAppMeasurement.xcframework */,
+				CE9F5AC72713F9F9003575E5 /* GoogleMobileAds.xcframework */,
+				CE9F5AC52713F9F5003575E5 /* GoogleUtilities.xcframework */,
+				CE9F5AC82713F9F9003575E5 /* nanopb.xcframework */,
+				CE9F5AC92713F9F9003575E5 /* PromisesObjC.xcframework */,
+				CE9F5ACA2713F9FA003575E5 /* UserMessagingPlatform.xcframework */,
+			);
+			name = GoogleAdMob;
 			sourceTree = "<group>";
 		};
 		CEBE14FD2673B0D300DCC931 /* SettingsView */ = {
@@ -676,6 +720,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kumarsharma.FruitsFacts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -697,6 +742,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kumarsharma.FruitsFacts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;

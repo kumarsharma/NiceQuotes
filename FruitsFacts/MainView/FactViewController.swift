@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class FactViewController: UIViewController {
+class FactViewController: UIViewController, GADBannerViewDelegate {
 
     var factTextView: UILabel?
     var presenter: FactPresenter?
@@ -15,6 +16,7 @@ class FactViewController: UIViewController {
     var adViewHeight = 44
     var selfWidth: CGFloat?
     var selfHeight: CGFloat?
+    var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +57,41 @@ class FactViewController: UIViewController {
         self.presenter = FactPresenter(textView: self.factTextView)
         self.presenter?.controller = self
         self.presenter?.viewDidLoad()
+        
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+
+        #if DEBUG        
+            bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        #else
+            bannerView.adUnitID = "ca-app-pub-1232392292595179/3647064682"
+        #endif
+        bannerView.rootViewController = self
+        addBannerViewToView(bannerView)
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
     }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(bannerView)
+        self.view.addConstraints(
+          [NSLayoutConstraint(item: bannerView,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: bottomLayoutGuide,
+                              attribute: .top,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: bannerView,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+       }
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -70,19 +106,29 @@ class FactViewController: UIViewController {
             view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
         let items = [image]
-        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             
-            ac.popoverPresentationController?.barButtonItem = sender
+            activityVC.popoverPresentationController?.barButtonItem = sender
         }
-        self.present(ac, animated: true, completion: nil)
+        self.present(activityVC, animated: true, completion: nil)
     }
     
     @objc func btnAction() {
         
         let settingsVc = SettingsTableViewController.init(style: UITableView.Style.grouped)
         self.navigationController?.pushViewController(settingsVc, animated: true)
+        /*
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            
+            let nav = UINavigationController(rootViewController: settingsVc)
+            nav.modalPresentationStyle = .formSheet
+            self.present(nav, animated: true, completion: nil)
+        } else {
+         
+            self.navigationController?.pushViewController(settingsVc, animated: true)
+        }*/
     }
     
     @objc func infoBtnAction() {
@@ -101,5 +147,29 @@ class FactViewController: UIViewController {
     @objc private func didSwipeDown() {
         
         self.presenter?.didSwipeDown()
+    }
+    
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+      print("bannerViewDidReceiveAd")
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewDidDismissScreen")
     }
 }
