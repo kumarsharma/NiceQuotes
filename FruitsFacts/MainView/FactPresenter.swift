@@ -43,6 +43,14 @@ class FactPresenter: MVPresenter {
         self.currentAudioFileName = (defaultConfig?.audioFileName)!
     }
     
+    func pauseSound() {
+        
+        if soundEffect!.isPlaying {
+         
+            soundEffect?.pause()
+        }
+    }
+    
     @objc func didSwipeUp() {
         
         selfWidth = self.controller?.view.bounds.size.width

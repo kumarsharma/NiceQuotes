@@ -22,10 +22,12 @@ class FactViewController: UIViewController, GADBannerViewDelegate, GADFullScreen
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Nice Quotes"
-        let barBtn = UIBarButtonItem.init(image: UIImage.init(named: "settings_icn"), style: .done, target: self, action: #selector(btnAction)) 
+        let color = UIColor.init(hexString: (defaultConfig?.bgColorCode!)! as NSString)
+        self.view.backgroundColor = color 
+        let barBtn = UIBarButtonItem.init(image: UIImage.init(named: "settings_icon"), style: .done, target: self, action: #selector(btnAction)) 
         let shareBtn = UIBarButtonItem.init(barButtonSystemItem: .action, target: self, action: #selector(shareBtnAction(sender:)))
         
-        barBtn.tintColor = .cyan
+//        barBtn.tintColor = .cyan
             
         let infoBtn = UIButton.init(type: .infoLight)
         infoBtn.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
@@ -105,14 +107,14 @@ class FactViewController: UIViewController, GADBannerViewDelegate, GADFullScreen
             adId = "ca-app-pub-1232392292595179/2629069821"
         #endif
         
-        GADInterstitialAd.load(withAdUnitID:adId,
+        GADInterstitialAd.load(withAdUnitID: adId,
                                         request: request,
-                              completionHandler: { [self] ad, error in
+                              completionHandler: { [self] ads, error in
                                 if let error = error {
                                   print("Failed to load interstitial ad with error: \(error.localizedDescription)")
                                   return
                                 }
-                                interstitial = ad
+                                interstitial = ads
                                 interstitial?.fullScreenContentDelegate = self
                                 if interstitial != nil {
                                     interstitial?.present(fromRootViewController: self)
@@ -154,6 +156,7 @@ class FactViewController: UIViewController, GADBannerViewDelegate, GADFullScreen
         
         let settingsVc = SettingsTableViewController.init(style: UITableView.Style.grouped)
         self.navigationController?.pushViewController(settingsVc, animated: true)
+        self.presenter?.pauseSound()
         /*
         if UIDevice.current.userInterfaceIdiom == .pad {
             

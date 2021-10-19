@@ -29,6 +29,9 @@
 		CE461C3226528D330052DA33 /* Sample_Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE461C3126528D330052DA33 /* Sample_Quotes.txt */; };
 		CE5A65E9268A29FF007A8585 /* QuoteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A65E8268A29FF007A8585 /* QuoteListController.swift */; };
 		CE5A65F1268A2AA2007A8585 /* QuotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A65F0268A2AA2007A8585 /* QuotePresenter.swift */; };
+		CE671523271DC7D900184616 /* Launch_Image_2048x1536.png in Resources */ = {isa = PBXBuildFile; fileRef = CE671521271DC7D800184616 /* Launch_Image_2048x1536.png */; };
+		CE671524271DC7D900184616 /* Launch_Image_1242x2688.png in Resources */ = {isa = PBXBuildFile; fileRef = CE671522271DC7D900184616 /* Launch_Image_1242x2688.png */; };
+		CE67153D271E47B700184616 /* settings_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE67153C271E47B700184616 /* settings_icon.png */; };
 		CE6AA1DD26550A48000D86B1 /* Bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6AA1DC26550A48000D86B1 /* Bg.png */; };
 		CE76FD2A264BE0190092709A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD29264BE0190092709A /* AppDelegate.swift */; };
 		CE76FD2C264BE0190092709A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FD2B264BE0190092709A /* SceneDelegate.swift */; };
@@ -97,6 +100,9 @@
 		CE461C3126528D330052DA33 /* Sample_Quotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample_Quotes.txt; sourceTree = "<group>"; };
 		CE5A65E8268A29FF007A8585 /* QuoteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListController.swift; sourceTree = "<group>"; };
 		CE5A65F0268A2AA2007A8585 /* QuotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotePresenter.swift; sourceTree = "<group>"; };
+		CE671521271DC7D800184616 /* Launch_Image_2048x1536.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch_Image_2048x1536.png; sourceTree = "<group>"; };
+		CE671522271DC7D900184616 /* Launch_Image_1242x2688.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch_Image_1242x2688.png; sourceTree = "<group>"; };
+		CE67153C271E47B700184616 /* settings_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icon.png; sourceTree = "<group>"; };
 		CE6AA1DC26550A48000D86B1 /* Bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bg.png; sourceTree = "<group>"; };
 		CE76FD26264BE0190092709A /* FruitsFacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitsFacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE76FD29264BE0190092709A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -193,9 +199,12 @@
 			children = (
 				CE23066E26A40C9F00588A39 /* Sounds */,
 				CE6AA1DC26550A48000D86B1 /* Bg.png */,
+				CE671522271DC7D900184616 /* Launch_Image_1242x2688.png */,
+				CE671521271DC7D800184616 /* Launch_Image_2048x1536.png */,
 				CE461C3126528D330052DA33 /* Sample_Quotes.txt */,
 				CE23066926A3FA3100588A39 /* colorPalette.plist */,
 				CE23069326A4392100588A39 /* settings_icn.png */,
+				CE67153C271E47B700184616 /* settings_icon.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -455,11 +464,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE23068C26A4341B00588A39 /* Little_Planet.mp3 in Resources */,
+				CE67153D271E47B700184616 /* settings_icon.png in Resources */,
+				CE671524271DC7D900184616 /* Launch_Image_1242x2688.png in Resources */,
 				CE23068B26A4341B00588A39 /* Relaxing.mp3 in Resources */,
 				CE23068F26A4341B00588A39 /* Funny_Song.mp3 in Resources */,
 				CE6AA1DD26550A48000D86B1 /* Bg.png in Resources */,
 				CE76FD39264BE01C0092709A /* LaunchScreen.storyboard in Resources */,
 				CE23068926A4341B00588A39 /* Love.mp3 in Resources */,
+				CE671523271DC7D900184616 /* Launch_Image_2048x1536.png in Resources */,
 				CE23068626A4341B00588A39 /* Acoustic_Breeze.mp3 in Resources */,
 				CE23068A26A4341B00588A39 /* Creative_Minds.mp3 in Resources */,
 				CE461C3226528D330052DA33 /* Sample_Quotes.txt in Resources */,
@@ -721,7 +733,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kumarsharma.FruitsFacts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kumarsharma.NiceQuotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -743,7 +755,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kumarsharma.FruitsFacts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kumarsharma.NiceQuotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
