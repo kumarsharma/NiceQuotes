@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class SettingsTableViewController: UITableViewController {
 
@@ -22,7 +23,7 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,6 +35,8 @@ class SettingsTableViewController: UITableViewController {
             return 4
         case 2:
             return 2
+        case 3:
+            return 3
         default:
             return 0
         }
@@ -120,6 +123,18 @@ class SettingsTableViewController: UITableViewController {
                 cell?.textLabel?.text = "Audio File: " + (defaultConfig?.audioFileName)!
                 cell?.accessoryType = .none
             }
+        } else if indexPath.section == 3 {
+            
+            if indexPath.row == 0 {
+                cell?.textLabel?.text = "About"
+                cell?.accessoryType = .none
+            } else if indexPath.row == 1 {
+                cell?.textLabel?.text = "Give us Feedback"
+                cell?.accessoryType = .none
+            } else if indexPath.row == 2 {
+                cell?.textLabel?.text = "Privacy Policy"
+                cell?.accessoryType = .none
+            }
         }
 
         return cell!
@@ -185,6 +200,31 @@ class SettingsTableViewController: UITableViewController {
             let navVc = UINavigationController(rootViewController: pickerVc)
             navVc.navigationBar.barStyle = .black
             self.present(navVc, animated: true, completion: nil)
+        } else if indexPath.section == 3 && indexPath.row == 0 {
+            
+            let ver = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+            let msg = "Developed with joy for you.\n\nYou can add custom quotes from settings.\n\nEnjoy quotes with background music.\n\nMusic source: www.bensound.com\n\nVersion: " + ver!
+            
+            let alert = UIAlertController(title: "Nice Quotes", message: msg, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else if indexPath.section == 3 && indexPath.row == 1 {
+            
+            if MFMailComposeViewController.canSendMail() {
+                
+                let mailVc = MFMailComposeViewController()
+                mailVc.mailComposeDelegate = self
+                mailVc.setToRecipients(["kumar.asom@gmail.com"])
+                mailVc.setSubject("Feedback for Nice Quotes (iOS App)")
+                present(mailVc, animated: true, completion: nil)
+            }
+            
+        } else if indexPath.section == 3 && indexPath.row == 2 {
+             
+            let browserVc = BrowserViewController()
+//            let nav = UINavigationController(rootViewController: browserVc)
+//            present(nav, animated: true, completion: nil)
+            self.navigationController?.pushViewController(browserVc, animated: true)
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -236,5 +276,13 @@ extension SettingsTableViewController: OPColorPickerDelegate {
             defaultConfig?.textColorCode = colorHex
             sharedCoredataCoordinator.saveContext()
         }
+    }
+}
+
+extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        controller.dismiss(animated: true, completion: nil)
     }
 }

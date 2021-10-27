@@ -32,10 +32,10 @@ class FactViewController: UIViewController, GADBannerViewDelegate, GADFullScreen
         let infoBtn = UIButton.init(type: .infoLight)
         infoBtn.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
         infoBtn.addTarget(self, action: #selector(infoBtnAction), for: .touchUpInside)
-        let barBtn2 = UIBarButtonItem.init(customView: infoBtn)
+//        let barBtn2 = UIBarButtonItem.init(customView: infoBtn)
         
-        self.navigationItem.rightBarButtonItems = [barBtn, shareBtn]
-        self.navigationItem.leftBarButtonItem = barBtn2
+        self.navigationItem.rightBarButtonItem = barBtn
+        self.navigationItem.leftBarButtonItem = shareBtn
         selfWidth = self.view.bounds.size.width
         selfHeight = self.view.bounds.size.height
         

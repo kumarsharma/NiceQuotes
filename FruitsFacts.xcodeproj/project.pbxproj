@@ -26,6 +26,7 @@
 		CE23068E26A4341B00588A39 /* Sweet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23068426A4341B00588A39 /* Sweet.mp3 */; };
 		CE23068F26A4341B00588A39 /* Funny_Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE23068526A4341B00588A39 /* Funny_Song.mp3 */; };
 		CE23069426A4392100588A39 /* settings_icn.png in Resources */ = {isa = PBXBuildFile; fileRef = CE23069326A4392100588A39 /* settings_icn.png */; };
+		CE2E4B8E271F1E3C00C76D69 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E4B8D271F1E3C00C76D69 /* BrowserViewController.swift */; };
 		CE461C3226528D330052DA33 /* Sample_Quotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE461C3126528D330052DA33 /* Sample_Quotes.txt */; };
 		CE5A65E9268A29FF007A8585 /* QuoteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A65E8268A29FF007A8585 /* QuoteListController.swift */; };
 		CE5A65F1268A2AA2007A8585 /* QuotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A65F0268A2AA2007A8585 /* QuotePresenter.swift */; };
@@ -97,6 +98,7 @@
 		CE23068526A4341B00588A39 /* Funny_Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Funny_Song.mp3; sourceTree = "<group>"; };
 		CE23069326A4392100588A39 /* settings_icn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icn.png; sourceTree = "<group>"; };
 		CE26AC962654ADD9004E0549 /* FruitsFacts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FruitsFacts.entitlements; sourceTree = "<group>"; };
+		CE2E4B8D271F1E3C00C76D69 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		CE461C3126528D330052DA33 /* Sample_Quotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample_Quotes.txt; sourceTree = "<group>"; };
 		CE5A65E8268A29FF007A8585 /* QuoteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListController.swift; sourceTree = "<group>"; };
 		CE5A65F0268A2AA2007A8585 /* QuotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotePresenter.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				CEBE14FE2673B10100DCC931 /* SettingsTableViewController.swift */,
 				CE22170726A333E200612738 /* KDPickerController.swift */,
 				CE22170826A333E200612738 /* OPColorPickerController.swift */,
+				CE2E4B8D271F1E3C00C76D69 /* BrowserViewController.swift */,
 			);
 			path = SettingsView;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				CE76FD63264BE8FF0092709A /* Fact+CoreDataProperties.swift in Sources */,
 				CE76FD7F264C04D00092709A /* MVPresenter.swift in Sources */,
 				CE22171126A3413400612738 /* Config+CoreDataProperties.swift in Sources */,
+				CE2E4B8E271F1E3C00C76D69 /* BrowserViewController.swift in Sources */,
 				CE23066526A3ED7000588A39 /* Constants.swift in Sources */,
 				CE22170A26A333E200612738 /* OPColorPickerController.swift in Sources */,
 				CE76FD77264C04700092709A /* FactPresenter.swift in Sources */,
